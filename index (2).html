@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="de" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wolny Finanzberatung | Florian Wolny – Finanzstrategie & Vermögensaufbau</title>
+<meta name="description" content="Florian Wolny – Finanzberatung, die Strategie denkt, nicht Produkte. Immobilien, Kapitalmarkt, Absicherung und Finanzierung aus einer Hand. Magdeburg & bundesweit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>document.getElementById('html-root').classList.add('js-ready');</script>
+<style>
+
+/* ════════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════════ */
+:root {
+  --teal:        #00636E;
+  --teal-dark:   #004850;
+  --teal-mid:    #007A87;
+  --teal-light:  #EBF5F6;
+  --teal-pale:   #F4FAFB;
+  --gold:        #B8892E;
+  --gold-light:  #FDF6E8;
+  --charcoal:    #1C1C1C;
+  --ink:         #2D2D2D;
+  --stone:       #5A5A5A;
+  --muted:       #8A8A87;
+  --border:      #E4E4E0;
+  --border-soft: #F0F0EC;
+  --bg:          #FFFFFF;
+  --bg-warm:     #FAFAF8;
+  --bg-section:  #F7F7F5;
+}
+
+/* ════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; line-height: 1.12; color: var(--charcoal); }
+h1 { font-size: clamp(2.6rem, 5vw, 4.2rem); }
+h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+h3 { font-size: clamp(1.15rem, 1.8vw, 1.45rem); }
+p  { font-size: 1rem; color: var(--stone); line-height: 1.8; font-weight: 300; }
+
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 6rem 0; }
+
+/* Eyebrow label */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.1rem;
+}
+.eyebrow.center { display: block; text-align: center; }
+
+/* Divider line */
+.section-rule {
+  width: 48px; height: 2px;
+  background: var(--teal);
+  margin-bottom: 1.6rem;
+  border: none;
+}
+.section-rule.center { margin-left: auto; margin-right: auto; }
+.section-rule.gold { background: var(--gold); }
+
+/* ════════════════════════════════════════
+   NAV
+════════════════════════════════════════ */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  padding: 0 2rem;
+  height: 70px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.35s, box-shadow 0.35s;
+}
+#nav.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--border), 0 4px 24px rgba(0,0,0,0.06);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--bg);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  transition: color 0.3s;
+}
+.nav-logo span { color: var(--gold); }
+.nav-logo-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  display: block;
+  margin-top: 2px;
+  transition: color 0.3s;
+}
+#nav.scrolled .nav-logo { color: var(--charcoal); }
+#nav.scrolled .nav-logo-sub { color: var(--muted); }
+
+.nav-links {
+  display: flex; gap: 2.2rem; list-style: none; align-items: center;
+}
+.nav-links a {
+  font-size: 0.84rem; font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: rgba(255,255,255,1); }
+#nav.scrolled .nav-links a { color: var(--stone); }
+#nav.scrolled .nav-links a:hover { color: var(--teal); }
+
+.nav-cta {
+  background: var(--teal) !important;
+  color: #fff !important;
+  padding: 0.5rem 1.3rem !important;
+  border-radius: 3px !important;
+  font-weight: 500 !important;
+  font-size: 0.82rem !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--teal-dark) !important; }
+#nav.scrolled .nav-cta { background: var(--teal) !important; color: #fff !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: #fff; transition: background 0.3s; border-radius: 2px; }
+#nav.scrolled .hamburger span { background: var(--charcoal); }
+
+/* ════════════════════════════════════════
+   HERO
+════════════════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  background: var(--teal-dark);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 70px;
+}
+
+/* Subtle texture overlay */
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,107,118,0.35) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 50% at 100% 0%, rgba(184,137,46,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 4rem 0 5rem;
+}
+
+/* LEFT */
+.hero-text { max-width: 560px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  margin-bottom: 1.8rem;
+}
+.hero-eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #5DD6E0;
+  animation: blink 2.2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero-eyebrow span {
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.hero-h1 {
+  color: #fff;
+  margin-bottom: 1.4rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.hero-h1 em { color: rgba(255,255,255,0.55); font-style: italic; }
+.hero-sub {
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  color: rgba(255,255,255,0.58);
+  max-width: 480px;
+  margin-bottom: 2.8rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+
+.btn-primary {
+  background: var(--teal-mid);
+  color: #fff;
+  padding: 0.88rem 2rem;
+  border-radius: 3px;
+  font-size: 0.87rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: background 0.25s, box-shadow 0.25s;
+  border: none; cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,90,100,0.25);
+}
+.btn-primary:hover { background: var(--teal); box-shadow: 0 4px 20px rgba(0,90,100,0.35); }
+
+.btn-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  padding: 0.9rem 2rem;
+  border-radius: 3px;
+  font-size: 0.88rem;
+  font-weight: 400;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+.hero-pillars {
+  display: flex; gap: 2.2rem; flex-wrap: wrap;
+  padding-top: 2.8rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.hero-pillar {}
+.hero-pillar-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem; font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  line-height: 1;
+  display: block; margin-bottom: 0.25rem;
+}
+.hero-pillar-lbl {
+  font-size: 0.67rem; color: rgba(255,255,255,0.28);
+  letter-spacing: 0.05em;
+}
+
+/* RIGHT – Portrait */
+.hero-portrait { position: relative; display: flex; justify-content: center; align-items: center; }
+.portrait-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+.portrait-img-frame {
+  border-radius: 5px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: linear-gradient(160deg, rgba(0,90,100,0.5), rgba(20,20,20,0.75));
+  border: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+}
+.portrait-img-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+.portrait-placeholder {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.8rem; padding: 2rem;
+  min-height: 400px;
+}
+.portrait-placeholder-icon { font-size: 5rem; opacity: 0.15; }
+.portrait-placeholder-hint {
+  font-size: 0.7rem; color: rgba(255,255,255,0.2);
+  text-align: center; line-height: 1.6; letter-spacing: 0.06em;
+  text-transform: uppercase; max-width: 160px;
+}
+/* Floating name badge */
+.portrait-name-card {
+  position: absolute;
+  bottom: -1rem; left: -1.2rem;
+  background: #fff;
+  border-radius: 4px;
+  padding: 0.9rem 1.3rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
+  min-width: 190px;
+}
+.portrait-name-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 600;
+  color: var(--charcoal); line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+.portrait-name-card-title {
+  font-size: 0.7rem; color: var(--muted);
+  letter-spacing: 0.03em; line-height: 1.4;
+}
+/* Floating trust badge */
+.portrait-trust-badge {
+  position: absolute;
+  top: 1.8rem; right: -0.8rem;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  color: rgba(255,255,255,0.75);
+  font-size: 0.67rem; font-weight: 500;
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(255,255,255,0.15);
+  text-transform: uppercase;
+}
+
+/* ════════════════════════════════════════
+   SPEZIALISTENNETZWERK
+════════════════════════════════════════ */
+#netzwerk { background: var(--bg-section); }
+.netzwerk-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.netzwerk-punkte {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0.85rem;
+  margin-top: 1.8rem;
+}
+.netzwerk-punkte li {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  font-size: 0.88rem; color: var(--stone); line-height: 1.6;
+}
+.netzwerk-punkte li::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0; margin-top: 0.45rem;
+}
+.netzwerk-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.nc {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.2rem 1.3rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.nc:hover {
+  border-color: rgba(0,99,110,0.25);
+  box-shadow: 0 4px 16px rgba(0,99,110,0.07);
+}
+.nc.hl {
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+  grid-column: span 2;
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.3rem 1.5rem;
+}
+.nc-icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 0.55rem;
+}
+.nc.hl .nc-icon { font-size: 1.7rem; margin: 0; flex-shrink: 0; }
+.nc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.98rem; font-weight: 500;
+  color: var(--charcoal); line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+.nc.hl .nc-name { color: #fff; font-size: 1.1rem; }
+.nc-sub {
+  font-size: 0.65rem; color: var(--muted);
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.nc.hl .nc-sub { color: rgba(255,255,255,0.5); }
+
+/* ════════════════════════════════════════
+   THINKING SECTION  ("Die meisten denken falsch")
+════════════════════════════════════════ */
+#thinking { background: var(--bg-warm); }
+.thinking-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.thinking-text h2 { margin-bottom: 1.2rem; }
+.thinking-text p { margin-bottom: 1rem; max-width: 480px; }
+.thinking-blocks {
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.thinking-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.4rem 1.6rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative; overflow: hidden;
+}
+.thinking-block::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--teal);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s;
+}
+.thinking-block:hover::before { transform: scaleY(1); }
+.thinking-block:hover { border-color: rgba(0,99,110,0.25); box-shadow: 0 4px 20px rgba(0,99,110,0.06); }
+.tb-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
+.tb-title { font-size: 0.92rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.25rem; }
+.tb-text { font-size: 0.84rem; color: var(--stone); line-height: 1.65; }
+
+/* ════════════════════════════════════════
+   APPROACH SECTION ("Mein Ansatz")
+════════════════════════════════════════ */
+#approach { background: var(--bg); }
+.approach-header { text-align: center; max-width: 640px; margin: 0 auto 4rem; }
+.approach-header h2 { margin-bottom: 1rem; }
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.approach-card {
+  background: var(--bg-section);
+  border-radius: 5px;
+  padding: 2.2rem 2rem;
+  text-align: center;
+  border: 1px solid var(--border-soft);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.approach-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,99,110,0.08);
+  border-color: rgba(0,99,110,0.15);
+}
+.approach-card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; font-weight: 300;
+  color: var(--teal-light);
+  line-height: 1; margin-bottom: 1rem;
+  display: block;
+}
+.approach-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--charcoal); }
+.approach-card p { font-size: 0.87rem; }
+
+/* ════════════════════════════════════════
+   LEISTUNGEN (Bausteine)
+════════════════════════════════════════ */
+#leistungen { background: var(--bg-section); }
+.leistungen-header { text-align: center; max-width: 580px; margin: 0 auto 3.5rem; }
+.leistungen-header h2 { margin-bottom: 0.8rem; }
+.baustein-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.baustein {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 2.4rem 2.2rem;
+  position: relative; overflow: hidden;
+  transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+}
+.baustein:hover {
+  box-shadow: 0 10px 40px rgba(0,99,110,0.07);
+  border-color: rgba(0,99,110,0.2);
+  transform: translateY(-3px);
+}
+.baustein-accent {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--teal);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s;
+}
+.baustein:hover .baustein-accent { transform: scaleX(1); }
+.baustein-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+.baustein-tag {
+  display: inline-block;
+  background: var(--teal-light); color: var(--teal);
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.22rem 0.7rem;
+  border-radius: 100px; margin-bottom: 0.9rem;
+}
+.baustein-tag.gold { background: var(--gold-light); color: var(--gold); }
+.baustein h3 { color: var(--charcoal); margin-bottom: 0.7rem; font-size: 1.3rem; }
+.baustein p { font-size: 0.88rem; margin-bottom: 1.2rem; }
+.baustein-link {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.07em;
+  color: var(--teal); text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: gap 0.2s;
+}
+.baustein-link:hover { gap: 0.7rem; }
+.baustein.baustein-main {
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+  color: #fff;
+}
+.baustein.baustein-main h3 { color: #fff; }
+.baustein.baustein-main p { color: rgba(255,255,255,0.6); }
+.baustein.baustein-main .baustein-accent { background: var(--gold); }
+.baustein.baustein-main .baustein-link { color: #7DD9E0; }
+
+/* ════════════════════════════════════════
+   ÜBER MICH
+════════════════════════════════════════ */
+#ueber-mich { background: var(--bg); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.about-portrait {
+  position: relative;
+}
+.about-portrait-frame {
+  border-radius: 5px; overflow: hidden;
+  aspect-ratio: 4/5;
+  background: linear-gradient(160deg, var(--teal-light), #e0eaeb);
+  border: 1px solid var(--border);
+}
+.about-portrait-frame img { width: 100%; height: 100%; object-fit: cover; }
+.about-portrait-placeholder {
+  width: 100%; height: 100%; min-height: 400px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.8rem;
+}
+.about-portrait-placeholder-icon { font-size: 4rem; opacity: 0.2; }
+.about-portrait-placeholder-hint { font-size: 0.7rem; color: var(--muted); text-align: center; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.6; max-width: 130px; }
+.about-portrait-badge {
+  position: absolute; bottom: -1rem; right: -1rem;
+  background: var(--teal-dark); color: #fff;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em;
+  padding: 0.7rem 1.2rem; border-radius: 3px;
+  box-shadow: 0 4px 16px rgba(0,72,80,0.25);
+}
+.about-content h2 { margin-bottom: 1.2rem; }
+.about-content p { margin-bottom: 1rem; max-width: 490px; }
+.about-quote-block {
+  margin: 1.8rem 0;
+  padding: 1.5rem 1.8rem;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-light);
+  border-radius: 0 4px 4px 0;
+}
+.about-quote-block blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-style: italic;
+  color: var(--charcoal); line-height: 1.5;
+  font-weight: 400;
+}
+.about-badges {
+  display: flex; flex-wrap: wrap; gap: 0.6rem;
+  margin-top: 1.8rem;
+}
+.about-badge {
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.77rem; color: var(--stone);
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.about-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+/* ════════════════════════════════════════
+   VERTRAUEN / ZAHLEN
+════════════════════════════════════════ */
+#vertrauen { background: var(--teal-dark); padding: 5rem 0; }
+.vertrauen-header { text-align: center; margin-bottom: 3.5rem; }
+.vertrauen-header h2 { color: #fff; margin-bottom: 0.8rem; }
+.vertrauen-header p { color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto; }
+.trust-stats {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 5px; overflow: hidden;
+  margin-bottom: 3rem;
+}
+.trust-stat {
+  background: rgba(0,72,80,0.6);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: background 0.2s;
+}
+.trust-stat:hover { background: rgba(0,107,118,0.5); }
+.trust-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 500; color: #fff;
+  line-height: 1; display: block; margin-bottom: 0.4rem;
+}
+.trust-stat-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+.trust-features {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+}
+.trust-feature {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 4px;
+  padding: 1.4rem 1.6rem;
+  display: flex; align-items: flex-start; gap: 0.9rem;
+}
+.tf-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.05rem; }
+.tf-title { font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.85); margin-bottom: 0.2rem; }
+.tf-text { font-size: 0.78rem; color: rgba(255,255,255,0.38); line-height: 1.6; }
+
+/* ════════════════════════════════════════
+   DENKWEISE / SZENARIEN
+════════════════════════════════════════ */
+#szenarien { background: var(--bg-warm); }
+.szenarien-header { max-width: 600px; margin-bottom: 3rem; }
+.szenarien-header h2 { margin-bottom: 0.8rem; }
+.szen-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+}
+.szen-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2rem 1.8rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.szen-card:hover {
+  border-color: rgba(0,99,110,0.2);
+  box-shadow: 0 6px 24px rgba(0,99,110,0.05);
+}
+.szen-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem; font-weight: 300;
+  color: var(--teal-light); line-height: 1;
+  margin-bottom: 0.9rem; display: block;
+}
+.szen-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+.szen-card p { font-size: 0.86rem; margin-bottom: 1rem; }
+.szen-result {
+  display: inline-block;
+  background: var(--teal-light); color: var(--teal);
+  font-size: 0.78rem; font-weight: 500;
+  padding: 0.35rem 0.75rem; border-radius: 2px;
+}
+
+/* ════════════════════════════════════════
+   PROZESS
+════════════════════════════════════════ */
+#prozess { background: var(--bg); }
+.prozess-header { text-align: center; max-width: 560px; margin: 0 auto 4rem; }
+.prozess-header h2 { margin-bottom: 0.8rem; }
+.prozess-steps {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0; position: relative;
+}
+.prozess-steps::before {
+  content: '';
+  position: absolute; top: 2.3rem; left: 12.5%; right: 12.5%; height: 1px;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
+  z-index: 0;
+}
+.prozess-step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 0 1.5rem; position: relative; z-index: 1;
+}
+.prozess-num {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 500; color: var(--teal);
+  margin-bottom: 1.3rem;
+  transition: background 0.25s, color 0.25s;
+  box-shadow: 0 0 0 6px var(--bg);
+}
+.prozess-step:hover .prozess-num { background: var(--teal); color: #fff; }
+.prozess-step-title { font-size: 0.95rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.4rem; }
+.prozess-step-text { font-size: 0.82rem; color: var(--stone); line-height: 1.6; }
+
+/* ════════════════════════════════════════
+   FINAL CTA
+════════════════════════════════════════ */
+#final-cta {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, #003840 100%);
+  padding: 7rem 0; text-align: center; position: relative; overflow: hidden;
+}
+#final-cta::before {
+  content: '';
+  position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 800px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,122,135,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 2; }
+.cta-eyebrow { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.2rem; }
+.cta-h2 { color: #fff; margin-bottom: 1rem; }
+.cta-h2 em { color: #7DD9E0; font-style: italic; }
+.cta-sub { color: rgba(255,255,255,0.5); font-size: 1rem; max-width: 520px; margin: 0 auto 2.8rem; }
+.cta-btns { display: flex; gap: 1.1rem; justify-content: center; flex-wrap: wrap; }
+.btn-cta-primary {
+  background: var(--teal-mid); color: #fff;
+  padding: 1rem 2.4rem; border-radius: 3px;
+  font-size: 0.92rem; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-cta-primary:hover { background: var(--teal); transform: translateY(-2px); }
+.btn-cta-ghost {
+  background: transparent; color: rgba(255,255,255,0.65);
+  padding: 1rem 2.4rem; border-radius: 3px;
+  font-size: 0.92rem; font-weight: 400;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.2s;
+}
+.btn-cta-ghost:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
+.cta-note { font-size: 0.74rem; color: rgba(255,255,255,0.25); margin-top: 1.6rem; }
+
+/* ════════════════════════════════════════
+   RECHNER TEASER (vorbereitet, dezent)
+════════════════════════════════════════ */
+#rechner-teaser { background: var(--bg-section); padding: 3.5rem 0; }
+.rechner-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 2rem 2.5rem;
+}
+.rechner-text {}
+.rechner-text h3 { font-size: 1.2rem; color: var(--charcoal); margin-bottom: 0.35rem; }
+.rechner-text p { font-size: 0.86rem; max-width: 440px; }
+.rechner-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.btn-outline-teal {
+  background: transparent; color: var(--teal);
+  border: 1.5px solid var(--teal);
+  padding: 0.7rem 1.5rem; border-radius: 3px;
+  font-size: 0.84rem; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  transition: all 0.2s;
+}
+.btn-outline-teal:hover { background: var(--teal); color: #fff; }
+.btn-filled-teal {
+  background: var(--teal); color: #fff;
+  border: 1.5px solid var(--teal);
+  padding: 0.7rem 1.5rem; border-radius: 3px;
+  font-size: 0.84rem; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  transition: background 0.2s;
+}
+.btn-filled-teal:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+footer {
+  background: var(--charcoal);
+  padding: 4rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.footer-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem; font-weight: 600;
+  color: #fff; margin-bottom: 0.2rem;
+}
+.footer-brand-name span { color: var(--gold); }
+.footer-brand-sub {
+  font-size: 0.58rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+  display: block; margin-bottom: 1rem;
+}
+.footer-desc { font-size: 0.8rem; color: rgba(255,255,255,0.28); line-height: 1.75; margin-bottom: 1.2rem; }
+.footer-lizenzen { display: flex; flex-direction: column; gap: 0.3rem; }
+.footer-liz { font-size: 0.69rem; color: rgba(255,255,255,0.2); }
+.footer-liz strong { color: rgba(255,255,255,0.35); }
+.footer-col-title {
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.28);
+  margin-bottom: 1.1rem;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.38); transition: color 0.2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.75); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 1.4rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.2); }
+.footer-legal { display: flex; gap: 1.4rem; }
+.footer-legal a { font-size: 0.73rem; color: rgba(255,255,255,0.28); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+/* ════════════════════════════════════════
+   KONTAKT
+════════════════════════════════════════ */
+#kontakt { background: var(--bg-warm); }
+.kontakt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
+.kontakt-text h2 { margin-bottom: 1rem; }
+.kontakt-text p { margin-bottom: 2rem; max-width: 420px; }
+.kontakt-info { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 2rem; }
+.kontakt-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.88rem; color: var(--stone); }
+.k-ico { width: 36px; height: 36px; border-radius: 50%; background: var(--teal-light); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+.kontakt-form { background: var(--bg); border: 1px solid var(--border); border-radius: 5px; padding: 2.2rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.4rem; }
+.form-group input,
+.form-group select,
+.form-group textarea { width: 100%; padding: 0.75rem 1rem; background: var(--bg-warm); border: 1px solid var(--border); border-radius: 3px; font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--charcoal); outline: none; transition: border-color 0.2s; appearance: none; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--teal); background: #fff; }
+.form-group textarea { min-height: 110px; resize: vertical; }
+.form-submit { width: 100%; padding: 0.95rem; background: var(--teal); color: #fff; border: none; border-radius: 3px; font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s; margin-top: 0.4rem; }
+.form-submit:hover { background: var(--teal-dark); }
+.form-note { font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 0.8rem; }
+.form-note a { color: var(--teal); }
+
+/* ════════════════════════════════════════
+   MODAL
+════════════════════════════════════════ */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; overflow-y: auto; padding: 2rem; backdrop-filter: blur(4px); }
+.modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+.modal-box { background: #fff; max-width: 720px; width: 100%; border-radius: 6px; overflow: hidden; margin: auto; animation: mIn 0.25s ease; }
+@keyframes mIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+.modal-head { background: var(--charcoal); padding: 1.6rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+.modal-head h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 500; color: #fff; }
+.modal-x { background: none; border: none; color: rgba(255,255,255,0.4); font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; transition: color 0.2s; }
+.modal-x:hover { color: #fff; }
+.modal-body { padding: 2rem; font-size: 0.85rem; line-height: 1.8; color: var(--stone); }
+.modal-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 500; color: var(--charcoal); margin: 1.6rem 0 0.4rem; }
+.modal-body h3:first-child { margin-top: 0; }
+.modal-body p { margin-bottom: 0.7rem; }
+.modal-body a { color: var(--teal); }
+
+/* ════════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════════ */
+.fade-in, .slide-up { transition: opacity 0.7s ease, transform 0.7s ease; }
+.js-ready .fade-in,
+.js-ready .slide-up { opacity: 0; transform: translateY(28px); }
+.js-ready .fade-in.visible,
+.js-ready .slide-up.visible { opacity: 1; transform: translateY(0); }
+.js-ready .fade-in-left { opacity: 0; transform: translateX(-24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.js-ready .fade-in-left.visible { opacity: 1; transform: translateX(0); }
+.js-ready .fade-in-right { opacity: 0; transform: translateX(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.js-ready .fade-in-right.visible { opacity: 1; transform: translateX(0); }
+.fd1 { transition-delay: 0.10s !important; }
+.fd2 { transition-delay: 0.20s !important; }
+.fd3 { transition-delay: 0.30s !important; }
+.fd4 { transition-delay: 0.40s !important; }
+
+/* ════════════════════════════════════════
+   NETZWERK
+════════════════════════════════════════ */
+#netzwerk { background: var(--bg-section); }
+.nw-wrap {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.nw-text h2 { margin-bottom: 1rem; }
+.nw-text p { margin-bottom: 0.9rem; max-width: 460px; }
+.nw-points {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+.nw-points li {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  font-size: 0.88rem; color: var(--stone); line-height: 1.55;
+}
+.nw-points li::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0; margin-top: 0.42rem;
+}
+
+/* Cards right column */
+.nw-cards { display: flex; flex-direction: column; gap: 0.9rem; }
+.nw-card-main {
+  background: var(--teal-dark);
+  border-radius: 4px;
+  padding: 1.3rem 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.nw-card-icon { font-size: 1.7rem; flex-shrink: 0; }
+.nw-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 600;
+  color: #fff; margin-bottom: 0.2rem;
+}
+.nw-card-sub {
+  font-size: 0.67rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.nw-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem;
+}
+.nw-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.3rem 1.4rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.nw-card:hover {
+  border-color: rgba(0,99,110,0.25);
+  box-shadow: 0 4px 16px rgba(0,99,110,0.06);
+}
+.nw-card-icon-sm { font-size: 1.35rem; display: block; margin-bottom: 0.6rem; }
+.nw-card-name-sm {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 500;
+  color: var(--charcoal); margin-bottom: 0.2rem;
+}
+.nw-card-tag {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-portrait { display: none; }
+  .hero-text { max-width: 100%; }
+  .netzwerk-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .netzwerk-cards { grid-template-columns: 1fr 1fr; }
+  .thinking-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .approach-grid { grid-template-columns: 1fr 1fr; }
+  .baustein-grid { grid-template-columns: 1fr; }
+  .nw-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-portrait { max-width: 320px; }
+  .trust-stats { grid-template-columns: repeat(2,1fr); }
+  .trust-features { grid-template-columns: 1fr 1fr; }
+  .szen-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .prozess-steps { grid-template-columns: 1fr 1fr; }
+  .prozess-steps::before { display: none; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 4rem 0; }
+  .container { padding: 0 1.2rem; }
+  #nav { padding: 0 1.2rem; height: 62px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; position: fixed;
+    inset: 0; top: 62px;
+    background: rgba(255,255,255,0.98);
+    flex-direction: column; align-items: center;
+    justify-content: center; gap: 2rem; z-index: 299;
+  }
+  .nav-links.open a { color: var(--stone); font-size: 1.1rem; }
+  .nav-links.open a:hover { color: var(--teal); }
+  #hero { padding-top: 62px; }
+  .hero-btns { flex-direction: column; }
+  .hero-btns a { width: 100%; justify-content: center; }
+  .hero-pillars { gap: 1.3rem; }
+  .approach-grid { grid-template-columns: 1fr; }
+  .trust-stats { grid-template-columns: repeat(2,1fr); }
+  .trust-features { grid-template-columns: 1fr; }
+  .prozess-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .cta-btns a { width: 100%; max-width: 320px; justify-content: center; }
+  .rechner-inner { flex-direction: column; align-items: flex-start; }
+  .rechner-btns { flex-direction: column; width: 100%; }
+  .rechner-btns a { text-align: center; justify-content: center; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .modal-overlay { padding: 0; align-items: flex-end; }
+  .modal-box { border-radius: 12px 12px 0 0; max-height: 90vh; overflow-y: auto; margin: 0; }
+  .modal-head { padding: 1.1rem 1.4rem; position: sticky; top: 0; z-index: 10; }
+  .modal-head h2 { font-size: 1.3rem; }
+  .modal-body { padding: 1.4rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  .trust-stats { grid-template-columns: 1fr 1fr; }
+  .prozess-steps { grid-template-columns: 1fr; }
+  .kontakt-form { padding: 1.5rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     NAV
+══════════════════════════════════ -->
+<nav id="nav">
+  <a href="index.html" style="text-decoration:none;">
+    <div class="nav-logo">Wolny <span>·</span> Finanzberatung</div>
+    <span class="nav-logo-sub">Strategie · Vermögen · Entscheidungen</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#ueber-mich">Über mich</a></li>
+    <li><a href="finanzierung.html">Finanzierung</a></li>
+    <li><a href="rechner.html">Rechner</a></li>
+    <li><a href="#kontakt" class="nav-cta">Erstgespräch buchen</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- LEFT: Text -->
+      <div class="hero-text fade-in">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-dot"></div>
+          <span>Finanzberatung · Magdeburg &amp; bundesweit</span>
+        </div>
+
+        <h1 class="hero-h1">
+          Die meisten treffen<br>
+          finanzielle Entscheidungen<br>
+          <em>ohne Überblick.</em>
+        </h1>
+
+        <p class="hero-sub">
+          Ich sorge dafür, dass Sie ihn bekommen – über Immobilien,
+          Kapitalmarkt, Absicherung und Struktur hinweg.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#kontakt" class="btn-primary">Gespräch vereinbaren</a>
+          <a href="#leistungen" class="btn-ghost">Wie ich arbeite</a>
+        </div>
+
+        <div class="hero-pillars">
+          <div class="hero-pillar">
+            <span class="hero-pillar-num">400+</span>
+            <span class="hero-pillar-lbl">Bankpartner im Vergleich</span>
+          </div>
+          <div class="hero-pillar">
+            <span class="hero-pillar-num">100%</span>
+            <span class="hero-pillar-lbl">Ungebunden &amp; unabhängig</span>
+          </div>
+          <div class="hero-pillar">
+            <span class="hero-pillar-num">0 €</span>
+            <span class="hero-pillar-lbl">Kosten für Sie</span>
+          </div>
+          <div class="hero-pillar">
+            <span class="hero-pillar-num">§34i · §34f · §34d</span>
+            <span class="hero-pillar-lbl">Zugelassen nach GewO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Portrait -->
+      <div class="hero-portrait fade-in fd2">
+        <div class="portrait-wrap">
+          <div class="portrait-img-frame">
+            <!-- Portrait einsetzen: <img src="florian-wolny.jpg" alt="Florian Wolny – Finanzberater Magdeburg"> -->
+            <div class="portrait-placeholder">
+              <span class="portrait-placeholder-icon">👤</span>
+              <span class="portrait-placeholder-hint">Foto einfügen:<br>florian-wolny.jpg</span>
+            </div>
+          </div>
+          <div class="portrait-name-card">
+            <div class="portrait-name-card-name">Florian Wolny</div>
+            <div class="portrait-name-card-title">Unabhängiger Finanzberater<br>Magdeburg &amp; bundesweit</div>
+          </div>
+          <div class="portrait-trust-badge">Ungebunden &amp; zugelassen</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     THINKING: Wie denken die meisten falsch?
+══════════════════════════════════ -->
+<section id="thinking">
+  <div class="container">
+    <div class="thinking-grid">
+
+      <div class="fade-in-left">
+        <span class="eyebrow">Häufige Denkfehler</span>
+        <hr class="section-rule">
+        <h2>Warum viele finanzielle Entscheidungen nicht aufgehen</h2>
+        <p style="margin-top:1rem;">Die meisten Menschen treffen finanzielle Entscheidungen nach dem Prinzip: „Was kostet das monatlich?" – nicht: „Was bringt mir das langfristig?"</p>
+        <p>Das Problem ist nicht fehlendes Geld. Es ist das Fehlen eines Gesamtbilds.</p>
+        <a href="#kontakt" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:1.8rem;font-size:.85rem;font-weight:500;color:var(--teal);transition:gap .2s;" onmouseover="this.style.gap='0.7rem'" onmouseout="this.style.gap='0.4rem'">Gesamtbild klären →</a>
+      </div>
+
+      <div class="thinking-blocks fade-in-right">
+        <div class="thinking-block">
+          <span class="tb-icon">🎯</span>
+          <div>
+            <div class="tb-title">Fokus nur auf den Zins</div>
+            <p class="tb-text">Der günstigste Zins nützt wenig, wenn Tilgung, Eigenkapital und Steuer nicht stimmen. Zins ist nur ein Parameter von vielen.</p>
+          </div>
+        </div>
+        <div class="thinking-block">
+          <span class="tb-icon">🧩</span>
+          <div>
+            <div class="tb-title">Entscheidungen ohne Zusammenhang</div>
+            <p class="tb-text">Finanzierung, Absicherung und Kapitalanlage werden separat entschieden – obwohl sie direkt voneinander abhängen.</p>
+          </div>
+        </div>
+        <div class="thinking-block">
+          <span class="tb-icon">🏦</span>
+          <div>
+            <div class="tb-title">Beratung durch Produktanbieter</div>
+            <p class="tb-text">Wer zur Bank geht, bekommt Bankprodukte erklärt. Kein Überblick, kein Vergleich, keine Strategie – nur das Sortiment des Hauses.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     APPROACH: Mein Ansatz
+══════════════════════════════════ -->
+<section id="approach">
+  <div class="container">
+    <div class="approach-header fade-in">
+      <span class="eyebrow center">Mein Ansatz</span>
+      <hr class="section-rule center">
+      <h2>Strategie vor Produkt</h2>
+      <p>Ich verkaufe keine Finanzprodukte – ich helfe Ihnen, die richtigen Entscheidungen zu treffen. Das ist ein grundlegender Unterschied.</p>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card fade-in fd1">
+        <span class="approach-card-num">01</span>
+        <h3>Überblick statt Einzelentscheidung</h3>
+        <p>Ich schaue auf Ihre gesamte finanzielle Situation – Einnahmen, Vermögen, Ziele, Risiken. Erst dann empfehle ich etwas.</p>
+      </div>
+      <div class="approach-card fade-in fd2">
+        <span class="approach-card-num">02</span>
+        <h3>Langfrist-Denken statt Kurzfrist-Optimierung</h3>
+        <p>Die beste Finanzentscheidung heute ist nicht immer die, die sich heute am günstigsten anfühlt. Ich denke in Jahrzehnten.</p>
+      </div>
+      <div class="approach-card fade-in fd3">
+        <span class="approach-card-num">03</span>
+        <h3>Klarheit statt Komplexität</h3>
+        <p>Finanzthemen müssen nicht kompliziert sein. Ich erkläre, was ich tue und warum – verständlich, ohne Fachsprache.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     LEISTUNGEN: Bausteine
+══════════════════════════════════ -->
+<section id="leistungen">
+  <div class="container">
+    <div class="leistungen-header fade-in">
+      <span class="eyebrow center">Leistungsbereiche</span>
+      <hr class="section-rule center">
+      <h2>Vier Bausteine.<br>Ein zusammenhängendes System.</h2>
+      <p>Kein Bereich steht für sich allein. Finanzierung, Immobilien, Kapitalmarkt und Absicherung wirken zusammen – oder gegeneinander.</p>
+    </div>
+    <div class="baustein-grid">
+
+      <div class="baustein fade-in fd1">
+        <div class="baustein-accent"></div>
+        <span class="baustein-icon">🗺️</span>
+        <span class="baustein-tag">Kern</span>
+        <h3>Finanzstrategie</h3>
+        <p>Bevor ein einziges Produkt empfohlen wird, klären wir: Wo stehen Sie? Wo wollen Sie hin? Was ist realistisch? Das ist die Basis für alles weitere.</p>
+        <a href="#kontakt" class="baustein-link">Strategie entwickeln →</a>
+      </div>
+
+      <div class="baustein baustein-main fade-in fd2">
+        <div class="baustein-accent"></div>
+        <span class="baustein-icon">🏛️</span>
+        <span class="baustein-tag gold">Schwerpunkt</span>
+        <h3>Immobilien als Kapitalanlage</h3>
+        <p style="color:rgba(255,255,255,0.55);">Eine vermietete Immobilie ist kein Kauf – sie ist ein finanzielles Instrument. Ich analysiere Rendite, Steuereffekte, Finanzierungsstruktur und Risiko. Erst dann treffen wir eine Entscheidung.</p>
+        <a href="#kontakt" class="baustein-link">Immobilien besprechen →</a>
+      </div>
+
+      <div class="baustein fade-in fd1" style="transition-delay:0.15s">
+        <div class="baustein-accent"></div>
+        <span class="baustein-icon">🏗️</span>
+        <span class="baustein-tag">Baustein</span>
+        <h3>Finanzierung</h3>
+        <p>Finanzierung ist ein Werkzeug, kein Ziel. Ich vergleiche über 400 Banken, integriere KfW-Fördermittel und strukturiere so, dass die Finanzierung langfristig trägt.</p>
+        <a href="finanzierung.html" class="baustein-link">Finanzierung prüfen →</a>
+      </div>
+
+      <div class="baustein fade-in fd2" style="transition-delay:0.25s">
+        <div class="baustein-accent"></div>
+        <span class="baustein-icon">🛡️</span>
+        <span class="baustein-tag">Baustein</span>
+        <h3>Absicherung</h3>
+        <p>Vermögensaufbau ohne Absicherung ist ein Fundament ohne Boden. Als Versicherungsfachmann berate ich zu Berufsunfähigkeit, Risikoleben und weiteren Bausteinen – ohne Produktdruck.</p>
+        <a href="#kontakt" class="baustein-link">Bedarf klären →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="ueber-mich">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-portrait fade-in">
+        <div class="about-portrait-frame">
+          <!-- Portrait einfügen: <img src="florian-wolny-about.jpg" alt="Florian Wolny"> -->
+          <div class="about-portrait-placeholder">
+            <span class="about-portrait-placeholder-icon">👤</span>
+            <span class="about-portrait-placeholder-hint">Foto einfügen:<br>florian-wolny.jpg</span>
+          </div>
+        </div>
+        <div class="about-portrait-badge">Wolny Finanzberatung · Magdeburg</div>
+      </div>
+
+      <div class="about-content fade-in fd2">
+        <span class="eyebrow">Über mich</span>
+        <hr class="section-rule">
+        <h2>Warum Kunden<br>zu mir kommen.</h2>
+        <p>Nicht wegen des niedrigsten Zinses. Nicht wegen einer Produktempfehlung. Sondern weil sie merken: Hier denkt jemand mit.</p>
+        <p>Ich bin kein Bankberater. Ich verkaufe kein Produkt. Meine Aufgabe ist es, Ihre finanzielle Situation zu verstehen – und die Entscheidungen zu begleiten, die sich langfristig auszahlen.</p>
+
+        <div class="about-quote-block">
+          <blockquote>
+            „Das größte Risiko unserer Zeit liegt in der Angst vor dem Risiko."
+          </blockquote>
+        </div>
+
+        <p>Als unabhängiger Finanzberater mit Lizenzen nach §34i, §34f und §34d GewO berate ich in Magdeburg und bundesweit – digital, persönlich, ohne Filialtermin.</p>
+
+        <div class="about-badges">
+          <span class="about-badge"><span class="about-badge-dot"></span>400+ Bankpartner im Vergleich</span>
+          <span class="about-badge"><span class="about-badge-dot"></span>Unabhängig &amp; bankenneutral</span>
+          <span class="about-badge"><span class="about-badge-dot"></span>Bundesweit digital</span>
+          <span class="about-badge"><span class="about-badge-dot"></span>§34i · §34f · §34d GewO</span>
+          <span class="about-badge"><span class="about-badge-dot"></span>Spezialistennetzwerk</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     SPEZIALISTENNETZWERK
+══════════════════════════════════ -->
+<section id="netzwerk" style="background:var(--bg-section);">
+  <div class="container">
+    <div class="nw-wrap">
+
+      <div class="nw-text fade-in-left">
+        <span class="eyebrow">Das Spezialistennetzwerk</span>
+        <hr class="section-rule">
+        <h2>Wie ein Ärztehaus –<br>für Ihre Finanzen.</h2>
+        <p>Stellen Sie sich ein Ärztehaus vor: Kein einzelner Arzt kann jede Fachrichtung abdecken – aber im Haus arbeiten alle Spezialisten Hand in Hand. Genau so arbeite ich.</p>
+        <p>Als Teil eines großen Berater-Teams stelle ich sicher, dass Sie in jedem Themenbereich die beste Expertise erhalten – koordiniert aus einer Hand, ohne Reibungsverluste.</p>
+        <ul class="nw-points">
+          <li>Zugang zu spezialisierten Kollegen für Steuer, Recht, Versicherung und Kapitalanlage</li>
+          <li>Über 400 Bankpartner für die bestmögliche Finanzierungslösung</li>
+          <li>Digitale Plattformen für effiziente Beratung bundesweit</li>
+          <li>Qualifizierte Beratung nach §34i, §34f und §34d GewO</li>
+        </ul>
+      </div>
+
+      <div class="nw-cards fade-in-right">
+        <div class="nw-card nw-card-main">
+          <span class="nw-card-icon">🏛️</span>
+          <div>
+            <div class="nw-card-name">Florian Wolny</div>
+            <div class="nw-card-sub">Ihr Hauptansprechpartner &amp; Koordinator</div>
+          </div>
+        </div>
+        <div class="nw-grid">
+          <div class="nw-card">
+            <span class="nw-card-icon-sm">🏠</span>
+            <div class="nw-card-name-sm">Immobilienfinanzierung</div>
+            <div class="nw-card-tag">§34i Spezialist</div>
+          </div>
+          <div class="nw-card">
+            <span class="nw-card-icon-sm">📈</span>
+            <div class="nw-card-name-sm">Kapitalanlage</div>
+            <div class="nw-card-tag">§34f Experte</div>
+          </div>
+          <div class="nw-card">
+            <span class="nw-card-icon-sm">🛡️</span>
+            <div class="nw-card-name-sm">Absicherung</div>
+            <div class="nw-card-tag">§34d Fachmann</div>
+          </div>
+          <div class="nw-card">
+            <span class="nw-card-icon-sm">🤝</span>
+            <div class="nw-card-name-sm">Netzwerk</div>
+            <div class="nw-card-tag">Spezialisten-Team</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     VERTRAUEN / ZAHLEN
+══════════════════════════════════ -->
+<section id="vertrauen">
+  <div class="container">
+    <div class="vertrauen-header fade-in">
+      <span class="eyebrow center" style="color:rgba(255,255,255,0.4);">Zahlen &amp; Fakten</span>
+      <h2>Was für sich spricht.</h2>
+      <p>Unabhängigkeit ist keine Marketingaussage. Sie ist das Ergebnis von Struktur, Netzwerk und klaren Prioritäten.</p>
+    </div>
+    <div class="trust-stats">
+      <div class="trust-stat fade-in fd1">
+        <span class="trust-stat-num">400+</span>
+        <span class="trust-stat-lbl">Bankpartner im Netzwerk</span>
+      </div>
+      <div class="trust-stat fade-in fd2">
+        <span class="trust-stat-num">100%</span>
+        <span class="trust-stat-lbl">Ungebunden &amp; bankenneutral</span>
+      </div>
+      <div class="trust-stat fade-in fd3">
+        <span class="trust-stat-num">0 €</span>
+        <span class="trust-stat-lbl">Kosten für Kreditnehmer</span>
+      </div>
+      <div class="trust-stat fade-in fd4">
+        <span class="trust-stat-num">3 Lizenzen</span>
+        <span class="trust-stat-lbl">§34i · §34f · §34d GewO</span>
+      </div>
+    </div>
+    <div class="trust-features">
+      <div class="trust-feature fade-in fd1">
+        <span class="tf-icon">🔍</span>
+        <div>
+          <div class="tf-title">Marktbreiter Vergleich</div>
+          <p class="tf-text">Europace, Prohyp, Interhyp – ich vergleiche den gesamten Markt, nicht nur ein Sortiment.</p>
+        </div>
+      </div>
+      <div class="trust-feature fade-in fd2">
+        <span class="tf-icon">🤝</span>
+        <div>
+          <div class="tf-title">Spezialistennetzwerk</div>
+          <p class="tf-text">Für Steuer, Recht und Investment arbeite ich mit spezialisierten Kollegen zusammen – koordiniert aus einer Hand.</p>
+        </div>
+      </div>
+      <div class="trust-feature fade-in fd3">
+        <span class="tf-icon">🌐</span>
+        <div>
+          <div class="tf-title">Bundesweit digital</div>
+          <p class="tf-text">Keine Wege, kein Filialtermin. Beratung komplett digital – ohne Abstriche bei Qualität oder Persönlichkeit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     SZENARIEN
+══════════════════════════════════ -->
+<section id="szenarien">
+  <div class="container">
+    <div class="szenarien-header fade-in">
+      <span class="eyebrow">Typische Situationen</span>
+      <hr class="section-rule">
+      <h2>Kommt Ihnen etwas davon bekannt vor?</h2>
+      <p>Drei Ausgangssituationen, die ich regelmäßig begleite.</p>
+    </div>
+    <div class="szen-grid">
+      <div class="szen-card fade-in fd1">
+        <span class="szen-num">01</span>
+        <h3>Sie verdienen gut, aber Ihr Vermögen wächst nicht.</h3>
+        <p>Gutes Einkommen, laufende Kosten, kein Plan. Wir analysieren, wo der Hebel liegt – und ob Immobilien, Kapitalmarkt oder eine Kombination für Sie sinnvoll ist.</p>
+        <span class="szen-result">Ergebnis: Klare Priorisierung</span>
+      </div>
+      <div class="szen-card fade-in fd2">
+        <span class="szen-num">02</span>
+        <h3>Sie wollen kaufen, aber wissen nicht, was wirklich möglich ist.</h3>
+        <p>Eigenheim oder Kapitalanlage? Wie viel geht? Was kostet es wirklich? Ich zeige Ihnen den vollständigen Finanzierungsrahmen – ohne Schönfärberei.</p>
+        <span class="szen-result">Ergebnis: Finanzierungsklarheit</span>
+      </div>
+      <div class="szen-card fade-in fd3">
+        <span class="szen-num">03</span>
+        <h3>Sie haben bereits Finanzierungen oder Produkte, aber kein Gesamtbild.</h3>
+        <p>Verschiedene Verträge, unklare Struktur, keine Strategie dahinter. Ich schaue auf das Gesamtbild und zeige, was optimiert werden kann – und was gut ist, wie es ist.</p>
+        <span class="szen-result">Ergebnis: Struktur &amp; Überblick</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     PROZESS
+══════════════════════════════════ -->
+<section id="prozess">
+  <div class="container">
+    <div class="prozess-header fade-in">
+      <span class="eyebrow center">Wie es läuft</span>
+      <hr class="section-rule center">
+      <h2>Von der ersten Frage<br>zur klaren Entscheidung.</h2>
+      <p>Vier Schritte, die ich mit jedem Kunden gehe – egal wie komplex die Ausgangslage ist.</p>
+    </div>
+    <div class="prozess-steps">
+      <div class="prozess-step fade-in fd1">
+        <div class="prozess-num">1</div>
+        <div class="prozess-step-title">Erstgespräch</div>
+        <p class="prozess-step-text">Kostenlos, unverbindlich. Wir verstehen Ihre Situation und klären, ob und wie ich helfen kann.</p>
+      </div>
+      <div class="prozess-step fade-in fd2">
+        <div class="prozess-num">2</div>
+        <div class="prozess-step-title">Analyse</div>
+        <p class="prozess-step-text">Ich schaue auf Einnahmen, Vermögen, Ziele und Risiken. Erst das vollständige Bild erlaubt eine ehrliche Einschätzung.</p>
+      </div>
+      <div class="prozess-step fade-in fd3">
+        <div class="prozess-num">3</div>
+        <div class="prozess-step-title">Strategie</div>
+        <p class="prozess-step-text">Keine generische Empfehlung. Wir entwickeln einen konkreten Ansatz, der zu Ihrer Situation und Ihren Zielen passt.</p>
+      </div>
+      <div class="prozess-step fade-in fd4">
+        <div class="prozess-num">4</div>
+        <div class="prozess-step-title">Umsetzung</div>
+        <p class="prozess-step-text">Von der Finanzierung über die Bankauswahl bis zur Unterschrift – ich begleite den gesamten Prozess.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     RECHNER TEASER (vorbereitet, dezent)
+══════════════════════════════════ -->
+<section id="rechner-teaser">
+  <div class="container">
+    <div class="rechner-inner fade-in">
+      <div class="rechner-text">
+        <h3>Finanzierungsrechner &amp; Konditionen</h3>
+        <p>Erste Zahlen selbst durchrechnen: Eigenheim, Kapitalanlage, Kaufen vs. Mieten – und aktuelle Zinsen im Überblick.</p>
+      </div>
+      <div class="rechner-btns">
+        <a href="rechner.html" class="btn-filled-teal">Rechner öffnen →</a>
+        <a href="finanzierung.html" class="btn-outline-teal">Finanzierungsseite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     FINAL CTA
+══════════════════════════════════ -->
+<section id="final-cta">
+  <div class="container">
+    <div class="cta-inner fade-in">
+      <span class="cta-eyebrow">Kostenlos &amp; unverbindlich</span>
+      <h2 class="cta-h2">Bereit für <em>finanzielle Klarheit?</em></h2>
+      <p class="cta-sub">Ein 30-minütiges Gespräch reicht, um zu verstehen, wo Sie stehen und welche Möglichkeiten Sie haben. Keine Verpflichtung, kein Kleingedrucktes.</p>
+      <div class="cta-btns">
+        <a href="#kontakt" class="btn-cta-primary">Erstgespräch buchen →</a>
+        <a href="rechner.html" class="btn-cta-ghost">Erst selbst rechnen</a>
+      </div>
+      <p class="cta-note">Florian Wolny · Wolny Finanzberatung · Magdeburg &amp; bundesweit</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     KONTAKT
+══════════════════════════════════ -->
+<section id="kontakt">
+  <div class="container">
+    <div class="kontakt-grid">
+      <div class="fade-in">
+        <span class="eyebrow">Kontakt &amp; Termin</span>
+        <hr class="section-rule">
+        <h2>Lassen Sie uns<br>sprechen.</h2>
+        <p>Ein erstes Gespräch kostet nichts. Was es bringen kann: Klarheit darüber, was für Sie wirklich möglich ist – und was nicht. Ehrlich, ohne Schönfärberei.</p>
+        <div class="kontakt-info">
+          <div class="kontakt-item"><div class="k-ico">📍</div>Hegelstraße 4, 39104 Magdeburg · bundesweit digital</div>
+          <div class="kontakt-item"><div class="k-ico">📧</div><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f262129200f3820232136622926212e2135262a3d3a2128612b2a">[email&#160;protected]</a></div>
+          <div class="kontakt-item"><div class="k-ico">📅</div>Online-Terminbuchung verfügbar</div>
+        </div>
+        <a href="#kontakt" style="display:inline-flex;align-items:center;gap:.45rem;background:var(--teal);color:#fff;padding:.9rem 1.9rem;border-radius:3px;font-size:.87rem;font-weight:500;transition:background .2s;" onmouseover="this.style.background='var(--teal-dark)'" onmouseout="this.style.background='var(--teal)'">Termin buchen →</a>
+      </div>
+      <div class="fade-in fd2">
+        <div class="kontakt-form">
+          <div class="form-row">
+            <div class="form-group"><label>Vorname</label><input type="text" placeholder="Max"></div>
+            <div class="form-group"><label>Nachname</label><input type="text" placeholder="Mustermann"></div>
+          </div>
+          <div class="form-group"><label>E-Mail</label><input type="email" placeholder="max@beispiel.de"></div>
+          <div class="form-group"><label>Telefon (optional)</label><input type="tel" placeholder="+49 ..."></div>
+          <div class="form-group"><label>Thema</label>
+            <select>
+              <option value="">Bitte wählen</option>
+              <option>Finanzstrategie / Gesamtbild</option>
+              <option>Immobilien als Kapitalanlage</option>
+              <option>Immobilienfinanzierung / Eigenheim</option>
+              <option>Anschlussfinanzierung</option>
+              <option>Absicherung</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Kurze Beschreibung</label><textarea placeholder="Was beschäftigt Sie gerade?"></textarea></div>
+          <button type="button" class="form-submit" id="fsub">Anfrage senden &#8594;</button>
+          <p class="form-note">Mit dem Absenden stimmen Sie der <a href="#" onclick="openModal('ds');return false;">Datenschutzerklärung</a> zu.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Wolny <span>·</span> Finanzberatung</div>
+        <span class="footer-brand-sub">Strategie · Vermögen · Entscheidungen</span>
+        <p class="footer-desc">Unabhängige Finanzberatung mit Schwerpunkt Vermögensaufbau, Immobilien und Finanzstrategie. Magdeburg &amp; bundesweit digital.</p>
+        <div class="footer-lizenzen">
+          <div class="footer-liz"><strong>§34i GewO</strong> · Immobiliardarlehensvermittler · D-W-171-6VGP-36</div>
+          <div class="footer-liz"><strong>§34f GewO</strong> · Finanzanlagenvermittler · D-F-171-B8H6-48</div>
+          <div class="footer-liz"><strong>§34d GewO</strong> · Versicherungsfachmann · D-MASC-0A1LA-33</div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Leistungen</div>
+        <ul class="footer-links">
+          <li><a href="#leistungen">Finanzstrategie</a></li>
+          <li><a href="#leistungen">Immobilien als Kapitalanlage</a></li>
+          <li><a href="finanzierung.html">Finanzierung</a></li>
+          <li><a href="#leistungen">Absicherung</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Tools &amp; Seiten</div>
+        <ul class="footer-links">
+          <li><a href="finanzierung.html">Finanzierungsseite</a></li>
+          <li><a href="rechner.html">Rechner</a></li>
+          <li><a href="finanzierung.html#kfw">KfW-Förderungen</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Rechtliches</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="openModal('imp');return false;">Impressum</a></li>
+          <li><a href="#" onclick="openModal('ds');return false;">Datenschutz</a></li>
+          <li><a href="https://www.vermittlerregister.info" target="_blank" rel="noopener">Vermittlerregister</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Florian Wolny · Wolny Finanzberatung · Magdeburg</span>
+      <div class="footer-legal">
+        <a href="#" onclick="openModal('imp');return false;">Impressum</a>
+        <a href="#" onclick="openModal('ds');return false;">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════
+     MODALS
+══════════════════════════════════ -->
+<div class="modal-overlay" id="modal-imp">
+  <div class="modal-box">
+    <div class="modal-head"><h2>Impressum</h2><button class="modal-x" onclick="closeModal('imp')">&#10005;</button></div>
+    <div class="modal-body">
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p><strong>Florian Wolny</strong><br>Hegelstraße 4<br>39104 Magdeburg<br>Deutschland</p>
+      <h3>Kontakt</h3>
+      <p>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4d24232b220d3a22212334602b24232c233724283f38232a632928">[email&#160;protected]</a></p>
+      <h3>Gewerbliche Tätigkeiten und Zulassungen</h3>
+      <p><strong>Immobiliardarlehensvermittler gemäß § 34i GewO</strong><br>Registrierungsnummer: D-W-171-6VGP-36</p>
+      <p><strong>Finanzanlagenvermittler gemäß § 34f GewO</strong><br>Registrierungsnummer: D-F-171-B8H6-48</p>
+      <p><strong>Versicherungsfachmann gemäß § 34d GewO</strong><br>Registrierungsnummer: D-MASC-0A1LA-33</p>
+      <h3>Registerbehörde</h3>
+      <p>Industrie- und Handelskammer Magdeburg<br>Alter Markt 8 · 39104 Magdeburg<br><a href="https://www.ihk-magdeburg.de" target="_blank" rel="noopener">www.ihk-magdeburg.de</a></p>
+      <h3>Vermittlerregister</h3>
+      <p>Eintragung prüfbar unter: <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener">www.vermittlerregister.info</a></p>
+      <h3>Haftungsausschluss</h3>
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Die Informationen stellen keine Anlageberatung, Steuer- oder Rechtsberatung dar.</p>
+      <h3>Streitbeilegung</h3>
+      <p>Plattform der EU-Kommission: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>. Ich nehme nicht an Verbraucherschlichtungsverfahren teil.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-ds">
+  <div class="modal-box">
+    <div class="modal-head"><h2>Datenschutzerklärung</h2><button class="modal-x" onclick="closeModal('ds')">&#10005;</button></div>
+    <div class="modal-body">
+      <h3>1. Verantwortlicher</h3>
+      <p><strong>Florian Wolny</strong><br>Hegelstraße 4 · 39104 Magdeburg<br>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2940474f46695e46454750044f4047484753404c5b5c474e074d4c">[email&#160;protected]</a></p>
+      <h3>2. Verarbeitung personenbezogener Daten</h3>
+      <p>Diese Erklärung erläutert, welche Daten ich erhebe, zu welchem Zweck und auf welcher Rechtsgrundlage.</p>
+      <h3>3. Kontaktformular</h3>
+      <p>Wenn Sie das Kontaktformular nutzen, werden die angegebenen Daten zur Bearbeitung gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
+      <h3>4. Terminbuchung</h3>
+      <p>Für Online-Terminbuchung wird ein externer Dienst eingesetzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
+      <h3>5. Ihre Rechte</h3>
+      <p>Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Widerspruch (Art. 21 DSGVO).<br>Kontakt: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="deb7b0b8b19ea9b1b2b0a7f3b8b7b0bfb0a4b7bbacabb0b9f0babb">[email&#160;protected]</a></p>
+      <h3>6. SSL-/TLS-Verschlüsselung</h3>
+      <p>Diese Website nutzt SSL-/TLS-Verschlüsselung. Stand: 2025.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* NAV */
+var navEl = document.getElementById('nav');
+function checkScroll(){
+  if(navEl) navEl.classList.toggle('scrolled', window.scrollY > 60);
+}
+window.addEventListener('scroll', checkScroll, { passive: true });
+checkScroll();
+
+/* MOBILE MENU */
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click', function(){
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+/* MODALS */
+function openModal(id){
+  var m = document.getElementById('modal-'+id);
+  if(m){ m.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+function closeModal(id){
+  var m = document.getElementById('modal-'+id);
+  if(m){ m.classList.remove('open'); document.body.style.overflow = ''; }
+}
+document.querySelectorAll('.modal-overlay').forEach(function(o){
+  o.addEventListener('click', function(e){
+    if(e.target === o){ o.classList.remove('open'); document.body.style.overflow = ''; }
+  });
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    document.querySelectorAll('.modal-overlay.open').forEach(function(o){
+      o.classList.remove('open');
+    });
+    document.body.style.overflow = '';
+  }
+});
+
+/* SCROLL ANIMATIONS */
+var animEls = document.querySelectorAll('.fade-in, .slide-up, .fade-in-left, .fade-in-right');
+if('IntersectionObserver' in window){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -50px 0px' });
+  animEls.forEach(function(el){ obs.observe(el); });
+} else {
+  animEls.forEach(function(el){ el.classList.add('visible'); });
+}
+
+/* FORM FEEDBACK */
+var fsubBtn = document.getElementById('fsub');
+if(fsubBtn){
+  fsubBtn.addEventListener('click', function(){
+    this.textContent = 'Anfrage gesendet \u2013 wir melden uns!';
+    this.style.background = '#1d6b53';
+    this.disabled = true;
+    var self = this;
+    setTimeout(function(){
+      self.textContent = 'Anfrage senden \u2192';
+      self.style.background = '';
+      self.disabled = false;
+    }, 4000);
+  });
+}
+</script>
+</body>
+</html>
