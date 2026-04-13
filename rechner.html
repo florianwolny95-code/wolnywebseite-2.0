@@ -49,8 +49,8 @@
   --transition:.3s ease;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;font-size:16px;}
-body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;max-width:100vw;}
+body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden;max-width:100vw;-webkit-font-smoothing:antialiased;}
 h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;}
 h1{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:600;}
 h2{font-size:clamp(1.7rem,2.8vw,2.5rem);font-weight:500;}
@@ -63,6 +63,20 @@ section{padding:4.5rem 0;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--teal-dark);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);}
 .nav-inner{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.85rem 2rem;}
 .nav-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:#fff;text-decoration:none;}
+/* Logo-System: Text immer sichtbar, Bild überlagert wenn geladen */
+.nav-logo-wrap{position:relative;height:50px;display:flex;align-items:center;}
+.nav-brand-text{font-family:var(--font-display);font-size:1.25rem;font-weight:600;line-height:1.1;color:#fff;transition:color 0.35s;white-space:nowrap;user-select:none;}
+.nav-brand-dot{color:var(--gold);}
+.nav-brand-sub-text{display:block;font-family:var(--font-body);font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:3px;transition:color 0.35s;white-space:nowrap;}
+nav.scrolled .nav-brand-text{color:var(--charcoal);}
+nav.scrolled .nav-brand-sub-text{color:var(--muted);}
+.nav-logo-img{position:absolute;top:50%;left:0;transform:translateY(-50%);height:46px;width:auto;transition:opacity 0.35s;display:block;pointer-events:none;}
+.nav-logo-img.logo-white{opacity:0;}
+.nav-logo-img.logo-dark{opacity:0;}
+.nav-logo-img.logo-white.loaded{opacity:1;}
+nav.scrolled .nav-logo-img.logo-white.loaded{opacity:0;}
+nav.scrolled .nav-logo-img.logo-dark.loaded{opacity:1;}
+.nav-logo-img.logo-white.loaded ~ .nav-brand-text{opacity:0;pointer-events:none;}
 .nav-logo span{color:var(--gold);}
 .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center;}
 .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.87rem;font-weight:400;letter-spacing:.03em;transition:color var(--transition);}
@@ -456,7 +470,13 @@ footer{background:var(--charcoal);padding:3rem 0 2rem;border-top:1px solid rgba(
 <!-- NAV -->
 <nav id="mainNav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Wolny<span>·</span>Finanzierung</a>
+    <a href="index.html" aria-label="Wolny Finanzberatung – Startseite">
+      <div class="nav-logo-wrap">
+        <img src="logo-white.png" alt="" class="nav-logo-img logo-white" onload="this.classList.add('loaded');" onerror="this.style.display='none';">
+        <img src="logo-dark.png"  alt="" class="nav-logo-img logo-dark"  onload="this.classList.add('loaded');" onerror="this.style.display='none';">
+        <div class="nav-brand-text">Wolny <span class="nav-brand-dot">·</span> Finanzberatung<span class="nav-brand-sub-text">Strategie · Vermögen · Entscheidungen</span></div>
+      </div>
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Finanzierung</a></li>
       <li><a href="#">Kapitalanlage</a></li>
