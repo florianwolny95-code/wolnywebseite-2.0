@@ -37,8 +37,8 @@
    RESET & BASE
 ════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; max-width: 100vw; }
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; max-width: 100vw; }
 
 h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; line-height: 1.12; color: var(--charcoal); }
 h1 { font-size: clamp(2.6rem, 5vw, 4.2rem); }
@@ -78,15 +78,15 @@ section { padding: 6rem 0; }
    NAV
 ════════════════════════════════════════ */
 #nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10000;
   padding: 0 2rem;
   height: 70px;
   display: flex; align-items: center; justify-content: space-between;
+  background: var(--teal-dark);
   transition: background 0.35s, box-shadow 0.35s;
 }
 #nav.scrolled {
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(16px);
+  background: #ffffff;
   box-shadow: 0 1px 0 var(--border), 0 4px 24px rgba(0,0,0,0.06);
 }
 .nav-logo {
@@ -111,6 +111,56 @@ section { padding: 6rem 0; }
 }
 #nav.scrolled .nav-logo { color: var(--charcoal); }
 #nav.scrolled .nav-logo-sub { color: var(--muted); }
+
+/* ── Nav Logo ── */
+.nav-logo-wrap {
+  position: relative;
+  display: flex; align-items: center;
+  flex-shrink: 0;
+  height: 44px;
+}
+.nav-brand-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 600; line-height: 1.1;
+  color: #fff;
+  transition: color 0.35s;
+  white-space: nowrap;
+  user-select: none;
+}
+.nav-brand-dot { color: var(--gold); }
+.nav-brand-sub-text {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.5rem; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 3px;
+  transition: color 0.35s;
+  white-space: nowrap;
+}
+#nav.scrolled .nav-brand-text { color: var(--charcoal); }
+#nav.scrolled .nav-brand-sub-text { color: var(--muted); }
+/* Logo-Bilder überlagern den Text wenn sie geladen sind */
+.nav-logo-img {
+  position: absolute; top: 50%; left: 0;
+  transform: translateY(-50%);
+  height: 40px; width: auto;
+  transition: opacity 0.35s;
+  display: block;
+  pointer-events: none;
+}
+.nav-logo-img.logo-white { opacity: 0; }
+.nav-logo-img.logo-dark  { opacity: 0; }
+.nav-logo-img.logo-white.loaded { opacity: 1; }
+#nav.scrolled .nav-logo-img.logo-white.loaded { opacity: 0; }
+#nav.scrolled .nav-logo-img.logo-dark.loaded  { opacity: 1; }
+.nav-logo-img.logo-white.loaded ~ .nav-brand-text { opacity: 0; pointer-events: none; }
+@media (max-width: 768px) {
+  .nav-logo-img { height: 30px; }
+  .nav-logo-wrap { height: 36px; }
+  .nav-brand-text { font-size: 1.05rem; }
+  .nav-brand-sub-text { font-size: 0.45rem; }
+}
 
 .nav-links {
   display: flex; gap: 2.2rem; list-style: none; align-items: center;
@@ -170,6 +220,7 @@ section { padding: 6rem 0; }
   position: relative;
   z-index: 2;
   padding: 4rem 0 5rem;
+  width: 100%;
 }
 
 /* LEFT */
@@ -457,7 +508,7 @@ section { padding: 6rem 0; }
 .approach-card-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.8rem; font-weight: 300;
-  color: var(--teal-light);
+  color: rgba(0,99,110,0.28);
   line-height: 1; margin-bottom: 1rem;
   display: block;
 }
@@ -918,21 +969,23 @@ footer {
 .nw-card-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.05rem; font-weight: 600;
-  color: #fff; margin-bottom: 0.2rem;
+  color: #ffffff !important; margin-bottom: 0.2rem;
 }
 .nw-card-sub {
   font-size: 0.67rem; font-weight: 500;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.75) !important;
 }
 .nw-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem;
+  width: 100%; min-width: 0;
 }
 .nw-card {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 1.3rem 1.4rem;
+  min-width: 0; /* prevent overflow */
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .nw-card:hover {
@@ -978,47 +1031,119 @@ footer {
 @media (max-width: 768px) {
   section { padding: 4rem 0; }
   .container { padding: 0 1.2rem; }
-  #nav { padding: 0 1.2rem; height: 62px; }
+
+  /* ── NAV fixes ── */
+  #nav {
+    padding: 0 1.2rem;
+    height: 62px;
+    /* Beim Scrollen über helle Sections: weißer Hintergrund */
+  }
+  #nav.scrolled {
+    background: #ffffff;
+  }
+  /* Nav über dunklem Hero: Teal-Hintergrund damit Logo sichtbar */
+  #nav:not(.scrolled) {
+    background: var(--teal-dark);
+  }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .nav-links.open {
-    display: flex; position: fixed;
-    inset: 0; top: 62px;
-    background: rgba(255,255,255,0.98);
-    flex-direction: column; align-items: center;
-    justify-content: center; gap: 2rem; z-index: 299;
+    display: flex;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    padding-top: 62px;
+    background: #ffffff;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 9999;
   }
   .nav-links.open a { color: var(--stone); font-size: 1.1rem; }
   .nav-links.open a:hover { color: var(--teal); }
-  #hero { padding-top: 62px; }
+  .nav-links.open .nav-cta {
+    background: var(--teal-mid) !important;
+    color: #fff !important;
+    padding: 0.7rem 2rem !important;
+  }
+
+  /* ── HERO fixes ── */
+  #hero { padding-top: 62px; overflow: hidden; }
+  .hero-grid { padding: 2.5rem 0 3.5rem; gap: 0; }
+  .hero-text { max-width: 100%; min-width: 0; }
+  .hero-h1 { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+  /* Kein horizontaler Überlauf */
+  #hero, #hero * { max-width: 100%; }
+
+  /* ── BUTTONS ── */
   .hero-btns { flex-direction: column; }
   .hero-btns a { width: 100%; justify-content: center; }
+  .btn-ghost { border-color: rgba(255,255,255,0.3); }
+
+  /* ── PILLARS ── */
   .hero-pillars { gap: 1.3rem; }
-  .approach-grid { grid-template-columns: 1fr; }
+  .hero-pillar-num { font-size: 1.2rem; }
+
+  /* ── APPROACH CARDS ── */
+  .approach-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .approach-card { padding: 1.8rem 1.6rem; text-align: left; }
+  .approach-card-num {
+    font-size: 2rem;
+    color: rgba(0,99,110,0.35);  /* etwas stärker auf Mobile */
+  }
+
+  /* ── BAUSTEIN NUMBERS (sz-num, v-num) ── */
+  .sz-num { font-size: 2rem; color: rgba(0,99,110,0.3); }
+  .v-num  { font-size: 2rem; color: rgba(0,99,110,0.15); }
+
+  /* ── TRUST STATS ── */
   .trust-stats { grid-template-columns: repeat(2,1fr); }
   .trust-features { grid-template-columns: 1fr; }
+
+  /* ── PROZESS ── */
   .prozess-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  /* ── NETZWERK ── */
+  .nw-wrap { overflow: hidden; }
+  .nw-cards { width: 100%; }
+  .nw-grid { grid-template-columns: 1fr 1fr; width: 100%; }
+  .nw-card-name-sm { font-size: 0.85rem; word-break: break-word; }
+  .nw-card-tag { font-size: 0.6rem; }
+
+  /* ── CTA ── */
   .cta-btns { flex-direction: column; align-items: center; }
   .cta-btns a { width: 100%; max-width: 320px; justify-content: center; }
+
+  /* ── RECHNER TEASER ── */
   .rechner-inner { flex-direction: column; align-items: flex-start; }
   .rechner-btns { flex-direction: column; width: 100%; }
   .rechner-btns a { text-align: center; justify-content: center; }
+
+  /* ── FOOTER ── */
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  /* ── MODALS ── */
   .modal-overlay { padding: 0; align-items: flex-end; }
   .modal-box { border-radius: 12px 12px 0 0; max-height: 90vh; overflow-y: auto; margin: 0; }
   .modal-head { padding: 1.1rem 1.4rem; position: sticky; top: 0; z-index: 10; }
   .modal-head h2 { font-size: 1.3rem; }
   .modal-body { padding: 1.4rem; }
+
+  /* ── KONTAKT ── */
   .form-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.8rem; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
   .trust-stats { grid-template-columns: 1fr 1fr; }
   .prozess-steps { grid-template-columns: 1fr; }
   .kontakt-form { padding: 1.5rem 1.2rem; }
+  .nw-grid { grid-template-columns: 1fr 1fr; }
+  .hero-pillars { grid-template-columns: 1fr 1fr; display: grid; gap: 1rem; }
 }
 </style>
 </head>
@@ -1028,9 +1153,18 @@ footer {
      NAV
 ══════════════════════════════════ -->
 <nav id="nav">
-  <a href="index.html" style="text-decoration:none;">
-    <div class="nav-logo">Wolny <span>·</span> Finanzberatung</div>
-    <span class="nav-logo-sub">Strategie · Vermögen · Entscheidungen</span>
+  <a href="index.html" style="text-decoration:none;" aria-label="Wolny Finanzberatung – Startseite">
+    <div class="nav-logo-wrap">
+      <!-- Bilder überlagern den Text sobald sie laden -->
+      <img src="logo-white.png" alt="" class="nav-logo-img logo-white"
+           onload="this.classList.add('loaded');"
+           onerror="this.style.display='none';">
+      <img src="logo-dark.png" alt="" class="nav-logo-img logo-dark"
+           onload="this.classList.add('loaded');"
+           onerror="this.style.display='none';">
+      <!-- Text-Fallback: immer sichtbar -->
+      <div class="nav-brand-text">Wolny <span class="nav-brand-dot">·</span> Finanzberatung<span class="nav-brand-sub-text">Strategie · Vermögen · Entscheidungen</span></div>
+    </div>
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#leistungen">Leistungen</a></li>
@@ -1099,11 +1233,7 @@ footer {
       <div class="hero-portrait fade-in fd2">
         <div class="portrait-wrap">
           <div class="portrait-img-frame">
-            <!-- Portrait einsetzen: <img src="florian-wolny.jpg" alt="Florian Wolny – Finanzberater Magdeburg"> -->
-            <div class="portrait-placeholder">
-              <span class="portrait-placeholder-icon">👤</span>
-              <span class="portrait-placeholder-hint">Foto einfügen:<br>florian-wolny.jpg</span>
-            </div>
+            <img src="florian-wolny.jpg" alt="Florian Wolny – Finanzberater Magdeburg" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;border-radius:inherit;">
           </div>
           <div class="portrait-name-card">
             <div class="portrait-name-card-name">Florian Wolny</div>
@@ -1257,11 +1387,7 @@ footer {
 
       <div class="about-portrait fade-in">
         <div class="about-portrait-frame">
-          <!-- Portrait einfügen: <img src="florian-wolny-about.jpg" alt="Florian Wolny"> -->
-          <div class="about-portrait-placeholder">
-            <span class="about-portrait-placeholder-icon">👤</span>
-            <span class="about-portrait-placeholder-hint">Foto einfügen:<br>florian-wolny.jpg</span>
-          </div>
+          <img src="florian-wolny.jpg" alt="Florian Wolny – Finanzberater" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;border-radius:inherit;">
         </div>
         <div class="about-portrait-badge">Wolny Finanzberatung · Magdeburg</div>
       </div>
@@ -1609,7 +1735,7 @@ footer {
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Florian Wolny · Wolny Finanzberatung · Magdeburg</span>
+      <span class="footer-copy">© 2025 Florian Wolny · Wolny Finanzberatung · Magdeburg</span>
       <div class="footer-legal">
         <a href="#" onclick="openModal('imp');return false;">Impressum</a>
         <a href="#" onclick="openModal('ds');return false;">Datenschutz</a>
@@ -1629,19 +1755,27 @@ footer {
       <h3>Angaben gemäß § 5 TMG</h3>
       <p><strong>Florian Wolny</strong><br>Hegelstraße 4<br>39104 Magdeburg<br>Deutschland</p>
       <h3>Kontakt</h3>
-      <p>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4d24232b220d3a22212334602b24232c233724283f38232a632928">[email&#160;protected]</a></p>
+      <p>Telefon: 0157 39284233<br>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b22252d240b3c24272532662d22252a2531222e393e252c652f2e">[email&#160;protected]</a></p>
       <h3>Gewerbliche Tätigkeiten und Zulassungen</h3>
       <p><strong>Immobiliardarlehensvermittler gemäß § 34i GewO</strong><br>Registrierungsnummer: D-W-171-6VGP-36</p>
       <p><strong>Finanzanlagenvermittler gemäß § 34f GewO</strong><br>Registrierungsnummer: D-F-171-B8H6-48</p>
       <p><strong>Versicherungsfachmann gemäß § 34d GewO</strong><br>Registrierungsnummer: D-MASC-0A1LA-33</p>
-      <h3>Registerbehörde</h3>
+      <h3>Zuständige Aufsichtsbehörde</h3>
       <p>Industrie- und Handelskammer Magdeburg<br>Alter Markt 8 · 39104 Magdeburg<br><a href="https://www.ihk-magdeburg.de" target="_blank" rel="noopener">www.ihk-magdeburg.de</a></p>
       <h3>Vermittlerregister</h3>
       <p>Eintragung prüfbar unter: <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener">www.vermittlerregister.info</a></p>
+      <h3>Berufsrechtliche Regelungen</h3>
+      <p>§ 34d, § 34f, § 34i Gewerbeordnung (GewO). Einsehbar unter: <a href="https://www.gesetze-im-internet.de/gewo/" target="_blank" rel="noopener">www.gesetze-im-internet.de/gewo/</a></p>
+      <h3>Umsatzsteuer</h3>
+      <p>Umsatzsteuer-ID gemäß § 27a UStG: [USt-IdNr. eintragen oder Abschnitt entfernen]</p>
       <h3>Haftungsausschluss</h3>
-      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Die Informationen stellen keine Anlageberatung, Steuer- oder Rechtsberatung dar.</p>
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt und stellen keine Anlageberatung, Steuer- oder Rechtsberatung dar. Für Richtigkeit, Vollständigkeit und Aktualität wird keine Haftung übernommen.</p>
+      <h3>Haftung für Links</h3>
+      <p>Diese Website enthält Links zu externen Seiten. Für deren Inhalte ist der jeweilige Anbieter verantwortlich. Eine permanente Kontrolle ist ohne konkrete Anhaltspunkte für Rechtsverstöße nicht zumutbar.</p>
+      <h3>Urheberrecht</h3>
+      <p>Die auf dieser Website erstellten Inhalte unterliegen dem deutschen Urheberrecht. Vervielfältigung und Verbreitung bedürfen der schriftlichen Zustimmung.</p>
       <h3>Streitbeilegung</h3>
-      <p>Plattform der EU-Kommission: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>. Ich nehme nicht an Verbraucherschlichtungsverfahren teil.</p>
+      <p>Plattform der EU-Kommission: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Ich nehme nicht an Verbraucherschlichtungsverfahren teil und bin hierzu nicht verpflichtet.</p>
     </div>
   </div>
 </div>
@@ -1651,17 +1785,50 @@ footer {
     <div class="modal-head"><h2>Datenschutzerklärung</h2><button class="modal-x" onclick="closeModal('ds')">&#10005;</button></div>
     <div class="modal-body">
       <h3>1. Verantwortlicher</h3>
-      <p><strong>Florian Wolny</strong><br>Hegelstraße 4 · 39104 Magdeburg<br>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2940474f46695e46454750044f4047484753404c5b5c474e074d4c">[email&#160;protected]</a></p>
-      <h3>2. Verarbeitung personenbezogener Daten</h3>
-      <p>Diese Erklärung erläutert, welche Daten ich erhebe, zu welchem Zweck und auf welcher Rechtsgrundlage.</p>
-      <h3>3. Kontaktformular</h3>
-      <p>Wenn Sie das Kontaktformular nutzen, werden die angegebenen Daten zur Bearbeitung gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
-      <h3>4. Terminbuchung</h3>
-      <p>Für Online-Terminbuchung wird ein externer Dienst eingesetzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
-      <h3>5. Ihre Rechte</h3>
-      <p>Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Widerspruch (Art. 21 DSGVO).<br>Kontakt: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="deb7b0b8b19ea9b1b2b0a7f3b8b7b0bfb0a4b7bbacabb0b9f0babb">[email&#160;protected]</a></p>
-      <h3>6. SSL-/TLS-Verschlüsselung</h3>
-      <p>Diese Website nutzt SSL-/TLS-Verschlüsselung. Stand: 2025.</p>
+      <p><strong>Florian Wolny</strong><br>Hegelstraße 4 · 39104 Magdeburg<br>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="553c3b333a15223a393b2c78333c3b343b2f3c3027203b327b3130">[email&#160;protected]</a></p>
+
+      <h3>2. Allgemeines</h3>
+      <p>Die Verarbeitung personenbezogener Daten erfolgt im Einklang mit der DSGVO und dem BDSG. Personenbezogene Daten sind alle Informationen, mit denen eine natürliche Person identifiziert werden kann.</p>
+
+      <h3>3. Hosting</h3>
+      <p>Diese Website wird über <strong>Vercel Inc.</strong> (340 Pine Street, Suite 900, San Francisco, CA 94104, USA) gehostet. Beim Aufruf der Website werden automatisch Verbindungsdaten (IP-Adresse, Browser, Betriebssystem, Zeitpunkt) erfasst. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Vercel hat sich dem EU-U.S. Data Privacy Framework verpflichtet.</p>
+
+      <h3>4. Google Fonts</h3>
+      <p>Diese Website nutzt Google Fonts (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Beim Laden der Seite wird eine Verbindung zu Google-Servern hergestellt, dabei kann Ihre IP-Adresse übermittelt werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+      <h3>5. Kontaktformular</h3>
+      <p>Bei Nutzung des Kontaktformulars werden die angegebenen Daten zur Bearbeitung Ihrer Anfrage gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Die Daten werden nicht an Dritte weitergegeben und nach Abschluss der Bearbeitung gelöscht, sofern keine gesetzliche Aufbewahrungspflicht besteht.</p>
+
+      <h3>6. Online-Terminbuchung</h3>
+      <p>Für die Terminbuchung wird ein externer Dienst (z. B. Microsoft Bookings) eingesetzt. Es gelten die Datenschutzbedingungen des jeweiligen Anbieters. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
+
+      <h3>7. Keine Cookies / kein Tracking</h3>
+      <p>Diese Website verwendet keine Tracking-Cookies und keine Analyse-Tools (z. B. Google Analytics). Es werden ausschließlich technisch notwendige Verbindungen hergestellt.</p>
+
+      <h3>8. Speicherdauer</h3>
+      <p>Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungsfristen (z. B. 6 Jahre nach HGB, 10 Jahre nach AO) es vorschreiben.</p>
+
+      <h3>9. Ihre Rechte</h3>
+      <p>Sie haben folgende Rechte gegenüber mir als Verantwortlichem:</p>
+      <p>
+        · Auskunft über gespeicherte Daten (Art. 15 DSGVO)<br>
+        · Berichtigung unrichtiger Daten (Art. 16 DSGVO)<br>
+        · Löschung Ihrer Daten (Art. 17 DSGVO)<br>
+        · Einschränkung der Verarbeitung (Art. 18 DSGVO)<br>
+        · Datenübertragbarkeit (Art. 20 DSGVO)<br>
+        · Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)<br>
+        · Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)
+      </p>
+      <p>Kontakt: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b7ded9d1d8f7c0d8dbd9ce9ad1ded9d6d9cdded2c5c2d9d099d3d2">[email&#160;protected]</a></p>
+
+      <h3>10. Beschwerderecht</h3>
+      <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist:<br><strong>Landesbeauftragter für den Datenschutz Sachsen-Anhalt</strong><br>Leiterstraße 9 · 39104 Magdeburg<br><a href="https://datenschutz.sachsen-anhalt.de" target="_blank" rel="noopener">datenschutz.sachsen-anhalt.de</a></p>
+
+      <h3>11. SSL-/TLS-Verschlüsselung</h3>
+      <p>Diese Website nutzt aus Sicherheitsgründen SSL-/TLS-Verschlüsselung. Erkennbar am „https://" in der Adresszeile. Ohne diese Verschlüsselung könnten übertragene Daten von Dritten gelesen werden.</p>
+
+      <h3>12. Aktualität</h3>
+      <p>Stand: Mai 2025. Diese Datenschutzerklärung wird bei Bedarf aktualisiert.</p>
     </div>
   </div>
 </div>
@@ -1670,7 +1837,7 @@ footer {
 <!-- ══════════════════════════════════
      JAVASCRIPT
 ══════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* NAV */
 var navEl = document.getElementById('nav');
 function checkScroll(){
@@ -1732,12 +1899,12 @@ if('IntersectionObserver' in window){
 var fsubBtn = document.getElementById('fsub');
 if(fsubBtn){
   fsubBtn.addEventListener('click', function(){
-    this.textContent = 'Anfrage gesendet \u2013 wir melden uns!';
+    this.textContent = 'Anfrage gesendet – wir melden uns!';
     this.style.background = '#1d6b53';
     this.disabled = true;
     var self = this;
     setTimeout(function(){
-      self.textContent = 'Anfrage senden \u2192';
+      self.textContent = 'Anfrage senden →';
       self.style.background = '';
       self.disabled = false;
     }, 4000);
