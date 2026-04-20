@@ -74,13 +74,13 @@
     align-items: center;
     gap: 14px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 19px; font-weight: 400;
-    letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 17px; font-weight: 400;
+    letter-spacing: 0.2em; text-transform: uppercase;
     text-shadow: 0 1px 20px rgba(0,0,0,0.6);
     text-decoration: none; color: inherit;
   }
   .logo-icon {
-    width: 36px; height: 36px;
+    width: 48px; height: 48px;
     object-fit: contain;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
     transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
@@ -279,6 +279,10 @@
     will-change: opacity;
   }
   .bg-magdeburg { opacity: 1; object-position: 65% center; }
+
+  @media (max-width: 960px) {
+    .bg-magdeburg { object-position: 20% center; }
+  }
   .bg-stage[data-active="magdeburg"] .bg-magdeburg { opacity: 1; }
   .bg-stage[data-active="magdeburg"] .bg-kurse,
   .bg-stage[data-active="magdeburg"] .bg-haus { opacity: 0; }
@@ -475,7 +479,30 @@
     50% { opacity: 0.7; }
   }
 
-  /* ═══ ABOUT SECTION (LIGHT) ═══ */
+  /* Transparent dark backdrop for text readability over bright haus image */
+  .hero-text-backdrop {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0);
+    padding: 0;
+  }
+  .hero-text-backdrop h1,
+  .hero-text-backdrop p.lead,
+  .hero-text-backdrop .hero-eyebrow {
+    position: relative;
+  }
+  .hero-content.has-backdrop {
+    background: rgba(6, 7, 9, 0.45);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    padding: 40px 48px 44px;
+    max-width: 680px;
+  }
+  @media (max-width: 960px) {
+    .hero-content.has-backdrop {
+      padding: 28px 24px 32px;
+      max-width: 100%;
+    }
+  }
   section.about {
     position: relative;
     padding: 140px 48px 140px;
@@ -1513,7 +1540,7 @@
     width: auto;
     max-width: 140px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    filter: none;
     display: block;
   }
   @keyframes rondell-scroll {
@@ -1688,8 +1715,8 @@
   @media (max-width: 960px) {
     nav.primary { padding: 16px 20px; }
     nav.primary.scrolled { padding: 12px 20px; }
-    .logo { font-size: 16px; letter-spacing: 0.16em; gap: 10px; }
-    .logo-icon { width: 30px; height: 30px; }
+    .logo { font-size: 14px; letter-spacing: 0.16em; gap: 10px; }
+    .logo-icon { width: 38px; height: 38px; }
     .nav-links { display: none; }
     .nav-burger { display: flex; }
 
@@ -1853,8 +1880,8 @@
   @media (max-width: 400px) {
     nav.primary { padding: 12px 16px; }
     nav.primary.scrolled { padding: 10px 16px; }
-    .logo { font-size: 14px; letter-spacing: 0.12em; gap: 8px; }
-    .logo-icon { width: 26px; height: 26px; }
+    .logo { font-size: 13px; letter-spacing: 0.12em; gap: 8px; }
+    .logo-icon { width: 34px; height: 34px; }
     .hero h1 { font-size: clamp(34px, 12vw, 52px); }
     .topic-section { padding: 56px 20px; }
     .topic-hero { padding: 90px 20px 56px; }
@@ -1918,9 +1945,9 @@
   <video class="bg-layer bg-magdeburg" autoplay muted loop playsinline preload="auto">
     <source src="https://res.cloudinary.com/dtxhydmct/video/upload/v1776676024/shutterstock_1024439915_bqhgrr.mov" type="video/mp4">
   </video>
-  <img class="bg-layer bg-haus" src="haus.jpg" alt="">
+  <img class="bg-layer bg-haus" src="https://res.cloudinary.com/dtxhydmct/image/upload/v1776678399/AZ2bsPNEXWz-9ZE52YxOSg-AZ2bsPNEvK10WfR8LLFO3w_komdyl.png" alt="">
   <video class="bg-layer bg-kurse" autoplay muted loop playsinline preload="auto">
-    <source src="kurse.mp4" type="video/mp4">
+    <source src="https://res.cloudinary.com/dtxhydmct/video/upload/v1776678255/Kurse_4K_xgu5zp.mp4" type="video/mp4">
   </video>
   <div class="bg-stage-tint"></div>
 </div>
@@ -1954,7 +1981,7 @@
 
   <!-- ═══ SECTION 2: FINANZIERUNG (Immobilie) ═══ -->
   <section class="hero" data-section="2" data-bg="haus" data-topic="finanzierung" id="finanzierung">
-    <div class="hero-content">
+    <div class="hero-content has-backdrop">
       <div class="hero-eyebrow">Immobilienfinanzierung · Kapitalanlage · Eigenheim</div>
       <h1>Ihre Finanzierung.<br><em>Richtig strukturiert.</em></h1>
       <p class="lead">
@@ -2876,13 +2903,13 @@
 
 <!-- FIXED TOPIC BACKGROUNDS -->
 <div class="topic-bg-fixed" id="topicBgFinanzierung">
-  <img src="haus.jpg" alt="">
+  <img src="https://res.cloudinary.com/dtxhydmct/image/upload/v1776678399/AZ2bsPNEXWz-9ZE52YxOSg-AZ2bsPNEvK10WfR8LLFO3w_komdyl.png" alt="">
   <div class="topic-bg-tint"></div>
 </div>
 
 <div class="topic-bg-fixed" id="topicBgInvestment">
   <video autoplay muted loop playsinline preload="auto">
-    <source src="kurse.mp4" type="video/mp4">
+    <source src="https://res.cloudinary.com/dtxhydmct/video/upload/v1776678255/Kurse_4K_xgu5zp.mp4" type="video/mp4">
   </video>
   <div class="topic-bg-tint"></div>
   <div class="ticker-field" aria-hidden="true">
