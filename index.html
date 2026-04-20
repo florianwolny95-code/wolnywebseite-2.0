@@ -1485,36 +1485,36 @@
     margin-top: 40px;
     overflow: hidden;
     position: relative;
-    padding: 14px 0;
+    padding: 20px 0;
     mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
     -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
   }
   .rondell-track {
     display: flex;
-    gap: 22px;
+    align-items: center;
+    gap: 48px;
     width: max-content;
-    animation: rondell-scroll 55s linear infinite;
+    animation: rondell-scroll 50s linear infinite;
   }
   .rondell:hover .rondell-track { animation-play-state: paused; }
   .rondell .partner {
     flex-shrink: 0;
-    padding: 16px 32px;
-    border: 1px solid var(--line-strong);
-    background: rgba(15, 16, 19, 0.6);
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 16px;
-    letter-spacing: 0.03em;
-    color: var(--ink);
-    white-space: nowrap;
-    transition: all 0.3s;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 8px;
+    transition: opacity 0.3s;
+    opacity: 0.55;
   }
-  .rondell .partner:hover {
-    border-color: var(--gold-bright);
-    color: var(--gold-bright);
-    background: rgba(15, 16, 19, 0.85);
+  .rondell .partner:hover { opacity: 1; }
+  .rondell .partner img {
+    height: 100%;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    display: block;
   }
   @keyframes rondell-scroll {
     0% { transform: translateX(0); }
@@ -1778,8 +1778,9 @@
     .process .step p { font-size: 12px; line-height: 1.5; }
     .process .step-num { font-size: 30px; }
 
-    .rondell-track { gap: 14px; animation-duration: 40s; }
-    .rondell .partner { padding: 12px 20px; font-size: 14px; }
+    .rondell-track { gap: 32px; animation-duration: 38s; }
+    .rondell .partner { height: 36px; }
+    .rondell .partner img { max-width: 110px; }
 
     .topic-quote {
       font-size: 18px; line-height: 1.35;
@@ -1845,7 +1846,8 @@
     .topic-hero h1 { font-size: clamp(36px, 14vw, 60px); }
     .close-topic-global { left: 8px; }
     .close-topic-global span { display: none; }
-    .rondell .partner { padding: 10px 16px; font-size: 13px; }
+    .rondell .partner { height: 32px; }
+    .rondell .partner img { max-width: 90px; }
   }
 
   @media (max-width: 400px) {
@@ -1874,7 +1876,7 @@
 <!-- ═══ NAVIGATION ═══ -->
 <nav class="primary" id="navPrimary">
   <a href="#top" class="logo">
-    <img src="wolny-logo-white.png" alt="" class="logo-icon">
+    <img src="logo-white.png" alt="" class="logo-icon">
     <span class="logo-text">Wolny <em>Finanzberatung</em></span>
   </a>
 
@@ -1893,7 +1895,7 @@
 <!-- Mobile fullscreen menu -->
 <div class="nav-mobile-menu" id="navMobile">
   <div class="nav-mobile-brand" aria-hidden="true">
-    <img src="wolny-logo-white.png" alt="Wolny Finanzberatung" class="nav-mobile-logo">
+    <img src="logo-white.png" alt="Wolny Finanzberatung" class="nav-mobile-logo">
     <div class="nav-mobile-name">Wolny <em>Finanzberatung</em></div>
     <div class="nav-mobile-role">Florian Wolny · Magdeburg</div>
   </div>
@@ -2007,7 +2009,7 @@
       <!-- Portrait + intro text -->
       <div class="about-top">
         <div class="portrait-light">
-          <img src="florian.jpg" alt="Florian Wolny – Finanzberater Magdeburg" onerror="this.style.display='none'">
+          <img src="florian-wolny.jpg" alt="Florian Wolny – Finanzberater Magdeburg" onerror="this.style.display='none'">
           <div class="portrait-badge">Florian Wolny</div>
         </div>
 
@@ -2179,7 +2181,7 @@
 
       <div class="footer-meta">
         <div class="footer-brand">
-          <img src="wolny-logo-white.png" alt="" class="footer-logo">
+          <img src="logo-white.png" alt="" class="footer-logo">
           <div>© 2026 · Florian Wolny · Wolny Finanzberatung</div>
         </div>
         <div class="footer-legal">
@@ -2235,7 +2237,7 @@
           <div class="cell">
             <div class="tag">Marktbreite</div>
             <h3>Vergleich über 400+ Bankpartner</h3>
-            <p>Über Europace, Prohyp und Interhyp vergleiche ich gleichzeitig hunderte Banken, Sparkassen, Versicherer und Bausparkassen. Sie bekommen das beste Angebot aus dem gesamten Markt — nicht das erstbeste aus einem Sortiment.</p>
+            <p>Über Europaceund Prohyp vergleiche ich gleichzeitig hunderte Banken, Sparkassen, Versicherer und Bausparkassen. Sie bekommen das beste Angebot aus dem gesamten Markt — nicht das erstbeste aus einem Sortiment.</p>
           </div>
           <div class="cell">
             <div class="tag">Struktur</div>
@@ -2312,39 +2314,33 @@
             <h2>Eine Auswahl<br>unserer <em>Bankpartner.</em></h2>
           </div>
           <div>
-            <p>Ich verbinde Sie mit lokalen und überregionalen Bankpartnern — für den besten Zins aus dem gesamten Markt. Europace, Prohyp und Interhyp bilden die Basis; lokale Sparkassen, Volksbanken und Spezialbanken ergänzen, wo es sinnvoll ist.</p>
+            <p>Ich verbinde Sie mit lokalen und überregionalen Bankpartnern — für den besten Zins aus dem gesamten Markt. Europaceund Prohyp bilden die Basis; lokale Sparkassen, Volksbanken und Spezialbanken ergänzen, wo es sinnvoll ist.</p>
           </div>
         </div>
 
         <div class="rondell">
           <div class="rondell-track">
-            <div class="partner">Volksbank · VR-Bank</div>
-            <div class="partner">Sparkasse</div>
-            <div class="partner">KfW Förderbank</div>
-            <div class="partner">apoBank</div>
-            <div class="partner">Münchener Hypothekenbank</div>
-            <div class="partner">Deutsche Bank</div>
-            <div class="partner">Commerzbank</div>
-            <div class="partner">DKB</div>
-            <div class="partner">ING</div>
-            <div class="partner">Hanseatic Bank</div>
-            <div class="partner">Europace</div>
-            <div class="partner">Prohyp</div>
-            <div class="partner">Interhyp</div>
+            <div class="partner"><img src="logo-volksbank.png" alt="Volksbank VR-Bank"></div>
+            <div class="partner"><img src="logo-sparkasse.png" alt="Sparkasse"></div>
+            <div class="partner"><img src="logo-kfw.png" alt="KfW Förderbank"></div>
+            <div class="partner"><img src="logo-apobank.png" alt="apoBank"></div>
+            <div class="partner"><img src="logo-muenchener-hypo.png" alt="Münchener Hypothekenbank"></div>
+            <div class="partner"><img src="logo-deutsche-bank.png" alt="Deutsche Bank"></div>
+            <div class="partner"><img src="logo-commerzbank.png" alt="Commerzbank"></div>
+            <div class="partner"><img src="logo-dkb.png" alt="DKB"></div>
+            <div class="partner"><img src="logo-ing.png" alt="ING"></div>
+            <div class="partner"><img src="logo-hanseatic.png" alt="Hanseatic Bank"></div>
             <!-- Duplicate for seamless loop -->
-            <div class="partner" aria-hidden="true">Volksbank · VR-Bank</div>
-            <div class="partner" aria-hidden="true">Sparkasse</div>
-            <div class="partner" aria-hidden="true">KfW Förderbank</div>
-            <div class="partner" aria-hidden="true">apoBank</div>
-            <div class="partner" aria-hidden="true">Münchener Hypothekenbank</div>
-            <div class="partner" aria-hidden="true">Deutsche Bank</div>
-            <div class="partner" aria-hidden="true">Commerzbank</div>
-            <div class="partner" aria-hidden="true">DKB</div>
-            <div class="partner" aria-hidden="true">ING</div>
-            <div class="partner" aria-hidden="true">Hanseatic Bank</div>
-            <div class="partner" aria-hidden="true">Europace</div>
-            <div class="partner" aria-hidden="true">Prohyp</div>
-            <div class="partner" aria-hidden="true">Interhyp</div>
+            <div class="partner" aria-hidden="true"><img src="logo-volksbank.png" alt=""></div>
+            <div class="partner" aria-hidden="true"><img src="logo-sparkasse.png" alt=""></div>
+            <div class="partner" aria-hidden="true"><img src="logo-kfw.png" alt=""></div>
+            <div class="partner" aria-hidden="true"><img src="logo-apobank.png" alt=""></div>
+            <div class="partner" aria-hidden="true"><img src="logo-muenchener-hypo.png" alt=""></div>
+            <div class="partner" aria-hidden="true"><img src="logo-deutsche-bank.png" alt=""></div>
+            <div class="partner" aria-hidden="true"><img src="logo-commerzbank.png" alt=""></div>
+            <div class="partner" aria-hidden="true"><img src="logo-dkb.png" alt=""></div>
+            <div class="partner" aria-hidden="true"><img src="logo-ing.png" alt=""></div>
+            <div class="partner" aria-hidden="true"><img src="logo-hanseatic.png" alt=""></div>
           </div>
         </div>
         <div class="partners-note">Auswahl der Finanzierungspartner. Verfügbarkeit je nach Region und Finanzierungsart.</div>
