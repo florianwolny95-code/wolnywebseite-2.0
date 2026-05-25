@@ -1896,6 +1896,104 @@
       transition: opacity 0.3s ease, transform 0.3s ease !important;
     }
   }
+
+  /* ═══ COOKIE CONSENT BANNER ═══ */
+  .cookie-banner {
+    position: fixed;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10000;
+    max-width: 520px;
+    margin-left: auto;
+    background: rgba(17, 18, 20, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    padding: 26px 28px;
+    color: var(--ink);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(184, 147, 90, 0.08);
+    font-family: 'Outfit', sans-serif;
+    transform: translateY(140%);
+    opacity: 0;
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .cookie-banner.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .cookie-banner h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--gold-bright);
+    letter-spacing: 0.01em;
+  }
+  .cookie-banner p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-dim);
+    margin-bottom: 18px;
+  }
+  .cookie-banner a,
+  .cookie-banner .cookie-banner-link {
+    color: var(--gold-bright);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    display: inline;
+  }
+  .cookie-banner .cookie-banner-link:hover { color: var(--ink); }
+  .cookie-banner-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .cookie-banner button {
+    flex: 1 1 auto;
+    min-width: 140px;
+    padding: 12px 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+  }
+  .cookie-banner button:active { transform: translateY(1px); }
+  .cookie-banner .btn-accept {
+    background: var(--gold);
+    color: #0a0b0d;
+    border: 1px solid var(--gold);
+  }
+  .cookie-banner .btn-accept:hover { background: var(--gold-bright); border-color: var(--gold-bright); }
+  .cookie-banner .btn-reject {
+    background: transparent;
+    color: var(--ink-dim);
+    border: 1px solid var(--line-strong);
+  }
+  .cookie-banner .btn-reject:hover { color: var(--ink); border-color: var(--ink-dim); }
+  @media (max-width: 600px) {
+    .cookie-banner {
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      padding: 20px 22px;
+    }
+    .cookie-banner h3 { font-size: 19px; }
+    .cookie-banner p { font-size: 13px; }
+    .cookie-banner button { min-width: 0; width: 100%; }
+  }
 </style>
 </head>
 <body>
@@ -2217,6 +2315,7 @@
           <button type="button" data-modal="impressum">Impressum</button>
           <button type="button" data-modal="datenschutz">Datenschutz</button>
           <button type="button" data-modal="cookies">Cookies</button>
+          <button type="button" onclick="window.wolnyCookies && window.wolnyCookies.reset()">Cookie-Einstellungen</button>
         </div>
       </div>
     </div>
@@ -2830,8 +2929,13 @@
       <h3>6 · Online-Terminbuchung</h3>
       <p>Für die Terminbuchung wird ein externer Dienst (Microsoft Bookings) eingesetzt. Es gelten die Datenschutzbedingungen des jeweiligen Anbieters. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
 
-      <h3>7 · Keine Cookies / kein Tracking</h3>
-      <p>Diese Website verwendet keine Tracking-Cookies und keine Analyse-Tools wie Google Analytics. Es werden ausschließlich technisch notwendige Verbindungen hergestellt.</p>
+      <h3>7 · Cookies &amp; Web-Analyse (Google Analytics)</h3>
+      <p>Diese Website verwendet beim ersten Aufruf einen Cookie-Banner. Sie entscheiden selbst, ob Sie der Nutzung von Google Analytics zustimmen oder ablehnen.</p>
+      <p><strong>Technisch notwendig:</strong> Zur Speicherung Ihrer Cookie-Entscheidung wird ein Eintrag im lokalen Speicher Ihres Browsers (<code>localStorage</code>) abgelegt. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TTDSG (technisch erforderlich).</p>
+      <p><strong>Mit Ihrer Einwilligung — Google Analytics 4:</strong> Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics verwendet Cookies und ähnliche Technologien, um die Nutzung der Website anonymisiert auszuwerten. Die IP-Adresse wird gekürzt übertragen (<code>anonymize_ip: true</code>), sodass kein direkter Personenbezug entsteht. Es werden u. a. aufgerufene Seiten, Besuchsdauer, Gerätetyp und ungefährer Standort (Stadt-/Regionsebene) erfasst. Eine Übertragung in die USA durch Google ist möglich; Google unterliegt dem EU-US Data Privacy Framework.</p>
+      <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TTDSG (Einwilligung).</p>
+      <p><strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen — entweder über den Link „Cookie-Einstellungen" im Footer oder durch Löschen des <code>localStorage</code>-Eintrags „wolny-cookie-consent" in den Einstellungen Ihres Browsers.</p>
+      <p><strong>Weitere Informationen:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></p>
 
       <h3>8 · Speicherdauer</h3>
       <p>Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungsfristen (z. B. 6 Jahre nach HGB, 10 Jahre nach AO) es vorschreiben.</p>
@@ -2877,22 +2981,31 @@
       </button>
     </div>
     <div class="legal-body">
-      <h3>Keine Tracking-Cookies</h3>
-      <p>Diese Website verzichtet bewusst auf Tracking-Cookies, Analyse-Tools wie Google Analytics, Werbe-Tracker oder vergleichbare Technologien. Ihre Nutzung wird nicht protokolliert, nicht analysiert und nicht an Dritte weitergegeben. Es erscheint daher kein Cookie-Banner — weil keine einwilligungspflichtigen Cookies gesetzt werden.</p>
+      <h3>Was wir verwenden</h3>
+      <p>Diese Website setzt nur Cookies bzw. Speicher-Einträge, die entweder technisch notwendig sind oder zu denen Sie ausdrücklich eingewilligt haben. Beim ersten Besuch erscheint dafür ein Cookie-Banner mit den Optionen „Alle akzeptieren" und „Nur notwendige".</p>
 
-      <h3>Technisch notwendige Verbindungen</h3>
-      <p>Beim Laden der Seite werden folgende externe Verbindungen aufgebaut, ohne die die Website nicht funktionieren würde:</p>
+      <h3>1 · Technisch notwendig (immer aktiv)</h3>
       <ul>
-        <li><strong>Google Fonts</strong> — lädt die verwendeten Schriftarten von Google-Servern. Dabei kann Ihre IP-Adresse übermittelt werden.</li>
-        <li><strong>Video-Streaming</strong> — die Hintergrund-Videos werden über den Hosting-Anbieter ausgeliefert.</li>
-        <li><strong>Microsoft Bookings</strong> — nur beim Klick auf „Beratungstermin buchen" wird eine externe Verbindung zu Microsoft aufgebaut.</li>
+        <li><strong>wolny-cookie-consent</strong> — speichert Ihre Cookie-Entscheidung im lokalen Speicher Ihres Browsers (<code>localStorage</code>), damit der Banner nicht bei jedem Besuch erneut erscheint. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TTDSG.</li>
       </ul>
 
-      <h3>Session-Speicher</h3>
-      <p>Die Seite verwendet keinen Session-Speicher und keinen lokalen Speicher (localStorage) für Tracking oder Identifikation. Lediglich technische Zustände der Anzeige (aktuelle Ansicht, Menü geöffnet/geschlossen) werden während der Sitzung im Browserfenster zwischengespeichert — diese Daten verlassen Ihren Computer nicht und werden beim Schließen des Tabs verworfen.</p>
+      <h3>2 · Mit Ihrer Einwilligung — Google Analytics 4</h3>
+      <p>Nach Klick auf „Alle akzeptieren" wird Google Analytics 4 geladen (Anbieter: Google Ireland Limited, Dublin). Google setzt dann Cookies wie <code>_ga</code> und <code>_ga_*</code>, um Aufrufe anonymisiert auszuwerten. Die IP-Adresse wird gekürzt übertragen (<code>anonymize_ip: true</code>).</p>
+      <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TTDSG (Einwilligung).</p>
+      <p>Bei „Nur notwendige" wird Google Analytics nicht geladen und es werden keine entsprechenden Cookies gesetzt.</p>
+
+      <h3>3 · Externe Dienste (keine Cookies, aber Verbindungsdaten)</h3>
+      <ul>
+        <li><strong>Google Fonts</strong> — lädt Schriftarten von Google-Servern. Dabei kann Ihre IP-Adresse an Google übermittelt werden.</li>
+        <li><strong>Video-Streaming</strong> — Hintergrund-Videos werden über einen Hosting-Anbieter (Cloudinary) ausgeliefert.</li>
+        <li><strong>Microsoft Bookings</strong> — nur beim Klick auf „Beratungstermin buchen" wird eine Verbindung zu Microsoft aufgebaut.</li>
+      </ul>
+
+      <h3>4 · Einwilligung widerrufen</h3>
+      <p>Sie können Ihre Entscheidung jederzeit ändern — entweder über den Link „Cookie-Einstellungen" im Footer oder durch Löschen des Eintrags „wolny-cookie-consent" im <code>localStorage</code> Ihres Browsers.</p>
 
       <h3>Weitere Informationen</h3>
-      <p>Für vollständige Informationen zum Datenschutz siehe die <button type="button" data-modal="datenschutz" style="background:none;border:none;color:var(--gold-bright);padding:0;font:inherit;text-decoration:underline;cursor:pointer;">Datenschutzerklärung</button>.</p>
+      <p>Vollständige Informationen siehe <button type="button" data-modal="datenschutz" style="background:none;border:none;color:var(--gold-bright);padding:0;font:inherit;text-decoration:underline;cursor:pointer;">Datenschutzerklärung</button>.</p>
     </div>
   </article>
 </div>
@@ -3198,6 +3311,107 @@
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
+</script>
+
+<!-- ═══ COOKIE CONSENT BANNER ═══ -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung" hidden>
+  <h3>Cookies &amp; Datenschutz</h3>
+  <p>Wir nutzen technisch notwendige Cookies, damit diese Website funktioniert. Mit Ihrer Einwilligung verwenden wir zusätzlich Analyse-Cookies (Google Analytics), um die Nutzung anonymisiert auszuwerten und das Angebot zu verbessern. Mehr in der <button type="button" data-modal="datenschutz" class="cookie-banner-link">Datenschutzerklärung</button>.</p>
+  <div class="cookie-banner-actions">
+    <button type="button" class="btn-reject" id="cookieReject">Nur notwendige</button>
+    <button type="button" class="btn-accept" id="cookieAccept">Alle akzeptieren</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  var STORAGE_KEY = 'wolny-cookie-consent';
+  var CONSENT_VERSION = 1; // hochzählen, wenn Texte/Tracker sich ändern → neue Einwilligung nötig
+
+  var banner = document.getElementById('cookieBanner');
+  var acceptBtn = document.getElementById('cookieAccept');
+  var rejectBtn = document.getElementById('cookieReject');
+
+  function readConsent() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (parsed.version !== CONSENT_VERSION) return null;
+      return parsed;
+    } catch (e) { return null; }
+  }
+
+  function saveConsent(analytics) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        version: CONSENT_VERSION,
+        analytics: !!analytics,
+        ts: Date.now()
+      }));
+    } catch (e) { /* localStorage blockiert — Banner zeigt sich beim nächsten Besuch wieder */ }
+  }
+
+  function hideBanner() {
+    banner.classList.remove('is-visible');
+    setTimeout(function() { banner.hidden = true; }, 600);
+  }
+
+  function showBanner() {
+    banner.hidden = false;
+    // Frame abwarten, damit die Transition zündet
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() { banner.classList.add('is-visible'); });
+    });
+  }
+
+  /**
+   * Hier wird Google Analytics geladen, sobald der Nutzer eingewilligt hat.
+   * Vor Aktivierung: GA-Measurement-ID in MEASUREMENT_ID eintragen.
+   */
+  function loadAnalytics() {
+    var MEASUREMENT_ID = ''; // z.B. 'G-XXXXXXXXXX' — leer = noch nichts laden
+    if (!MEASUREMENT_ID) return;
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', MEASUREMENT_ID, { anonymize_ip: true });
+  }
+
+  acceptBtn.addEventListener('click', function() {
+    saveConsent(true);
+    loadAnalytics();
+    hideBanner();
+  });
+
+  rejectBtn.addEventListener('click', function() {
+    saveConsent(false);
+    hideBanner();
+  });
+
+  var existing = readConsent();
+  if (existing === null) {
+    // Kurze Verzögerung, damit die Seite zuerst sichtbar wird
+    setTimeout(showBanner, 600);
+  } else if (existing.analytics) {
+    loadAnalytics();
+  }
+
+  // Optional: globale API, um Einstellungen später erneut zu öffnen
+  // (z.B. Link "Cookie-Einstellungen" im Footer → window.wolnyCookies.open())
+  window.wolnyCookies = {
+    open: showBanner,
+    reset: function() { try { localStorage.removeItem(STORAGE_KEY); } catch(e){} showBanner(); }
+  };
+})();
 </script>
 
 </body>
