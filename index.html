@@ -1572,33 +1572,66 @@
   }
 
   /* Banks rondell — infinite horizontal scroll */
-  .rondell {
+  .rondell-wrap {
     margin-top: 40px;
+    position: relative;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(180deg,
+      rgba(184, 147, 90, 0.18) 0%,
+      rgba(184, 147, 90, 0.04) 22%,
+      rgba(184, 147, 90, 0.04) 78%,
+      rgba(184, 147, 90, 0.18) 100%);
+    box-shadow:
+      0 18px 50px -20px rgba(0, 0, 0, 0.55),
+      0 1px 0 rgba(237, 232, 220, 0.04) inset;
+  }
+  .rondell {
     overflow: hidden;
     position: relative;
-    padding: 20px 0;
-    mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    padding: 28px 0;
+    border-radius: 15px;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(212, 180, 131, 0.07) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(237, 232, 220, 0.035) 0%, rgba(237, 232, 220, 0.015) 100%),
+      var(--bg-warm);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
   }
   .rondell-track {
     display: flex;
     align-items: center;
-    gap: 48px;
+    gap: 28px;
     width: max-content;
     animation: rondell-scroll 50s linear infinite;
   }
-  .rondell:hover .rondell-track { animation-play-state: paused; }
+  .rondell-wrap:hover .rondell-track { animation-play-state: paused; }
   .rondell .partner {
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 44px;
-    padding: 0 8px;
-    transition: opacity 0.3s;
-    opacity: 0.55;
+    height: 56px;
+    padding: 10px 22px;
+    background: rgba(237, 232, 220, 0.05);
+    border: 1px solid rgba(237, 232, 220, 0.08);
+    border-radius: 10px;
+    box-shadow:
+      0 1px 0 rgba(237, 232, 220, 0.05) inset,
+      0 6px 14px -8px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0.82;
   }
-  .rondell .partner:hover { opacity: 1; }
+  .rondell .partner:hover {
+    opacity: 1;
+    background: rgba(237, 232, 220, 0.09);
+    border-color: rgba(184, 147, 90, 0.4);
+    transform: translateY(-2px);
+    box-shadow:
+      0 1px 0 rgba(237, 232, 220, 0.08) inset,
+      0 10px 22px -8px rgba(0, 0, 0, 0.6),
+      0 0 18px -4px rgba(184, 147, 90, 0.25);
+  }
   .rondell .partner img {
     height: 100%;
     width: auto;
@@ -1869,8 +1902,10 @@
     .process .step p { font-size: 12px; line-height: 1.5; }
     .process .step-num { font-size: 30px; }
 
-    .rondell-track { gap: 32px; animation-duration: 38s; }
-    .rondell .partner { height: 36px; }
+    .rondell-wrap { margin-top: 32px; border-radius: 14px; }
+    .rondell { padding: 22px 0; border-radius: 13px; }
+    .rondell-track { gap: 18px; animation-duration: 38s; }
+    .rondell .partner { height: 48px; padding: 8px 16px; border-radius: 9px; }
     .rondell .partner img { max-width: 110px; }
 
     .topic-quote {
@@ -1937,7 +1972,8 @@
     .topic-hero h1 { font-size: clamp(36px, 14vw, 60px); }
     .close-topic-global { left: 8px; }
     .close-topic-global span { display: none; }
-    .rondell .partner { height: 32px; }
+    .rondell-track { gap: 14px; }
+    .rondell .partner { height: 42px; padding: 6px 12px; border-radius: 8px; }
     .rondell .partner img { max-width: 90px; }
   }
 
@@ -2510,6 +2546,7 @@
           </div>
         </div>
 
+        <div class="rondell-wrap">
         <div class="rondell">
           <div class="rondell-track">
             <div class="partner"><img src="logo-volksbank.png" alt="Volksbank VR-Bank"></div>
@@ -2534,6 +2571,7 @@
             <div class="partner" aria-hidden="true"><img src="logo-ing.png" alt=""></div>
             <div class="partner" aria-hidden="true"><img src="logo-hanseatic.png" alt=""></div>
           </div>
+        </div>
         </div>
         <div class="partners-note">Auswahl der Finanzierungspartner. Verfügbarkeit je nach Region und Finanzierungsart.</div>
       </div>
