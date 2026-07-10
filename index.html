@@ -2452,6 +2452,7 @@
     <li><a href="#ueber-mich">Über mich</a></li>
     <li><a href="#finanzierung" data-open-topic="finanzierung">Finanzierung</a></li>
     <li><a href="#investment" data-open-topic="investment">Investment</a></li>
+    <li><a href="/kundenreisen/">Kundenreisen</a></li>
     <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
   </ul>
 
@@ -2470,6 +2471,7 @@
   <a href="#ueber-mich" class="mobile-link">Über <em>mich</em></a>
   <a href="#finanzierung" class="mobile-link" data-open-topic="finanzierung"><em>Finanzierung</em></a>
   <a href="#investment" class="mobile-link" data-open-topic="investment"><em>Investment</em></a>
+  <a href="/kundenreisen/" class="mobile-link">Kunden<em>reisen</em></a>
   <a href="#kontakt" class="mobile-link">Kontakt</a>
 </div>
 
@@ -3830,6 +3832,14 @@
       closeLegalModals();
     }
   });
+
+  // Rechts-Modals per Hash öffnen (z. B. /#impressum — genutzt von Unterseiten wie /kundenreisen/)
+  function openLegalFromHash() {
+    const name = (location.hash || '').replace('#', '');
+    if (name === 'impressum' || name === 'datenschutz' || name === 'cookies') openLegalModal(name);
+  }
+  window.addEventListener('hashchange', openLegalFromHash);
+  openLegalFromHash();
 
   // HAUS ILLUSTRATION — zoom-in + multi-stage reveal + light sweep when in view
   const hausViz = document.querySelector('.haus-viz');
