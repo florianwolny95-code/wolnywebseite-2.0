@@ -1932,6 +1932,42 @@
     background: rgba(10, 11, 13, 0.55);
   }
 
+  /* „So läuft's"-Ministrip im Kontaktbereich */
+  .contact-steps {
+    margin-top: 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .contact-step {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 18px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+  }
+  .contact-step:last-child { border-bottom: 1px solid var(--line); }
+  .contact-step .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 30px;
+    line-height: 1;
+  }
+  .contact-step .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .contact-step .step-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+  }
+
   /* Kontakt-CTA-Reihe */
   .contact-cta-row {
     display: flex;
@@ -2781,6 +2817,30 @@
         <div>
           <div class="section-num-main">Kontakt</div>
           <h2 class="display">Lassen Sie uns <em>sprechen.</em></h2>
+
+          <div class="contact-steps">
+            <div class="contact-step">
+              <div class="step-num">01</div>
+              <div>
+                <div class="step-title">Kurz melden</div>
+                <div class="step-desc">Per WhatsApp, Telefon oder E-Mail — formlos, ohne Unterlagen.</div>
+              </div>
+            </div>
+            <div class="contact-step">
+              <div class="step-num">02</div>
+              <div>
+                <div class="step-title">30 Minuten sprechen</div>
+                <div class="step-desc">Wir klären, wo Sie stehen und was realistisch möglich ist. Kostenfrei.</div>
+              </div>
+            </div>
+            <div class="contact-step">
+              <div class="step-num">03</div>
+              <div>
+                <div class="step-title">Entscheiden Sie in Ruhe</div>
+                <div class="step-desc">Sie bekommen eine klare Einschätzung — ob und wie es weitergeht, bestimmen Sie.</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
           <p>Ein erstes Gespräch kostet nichts. Was es bringen kann: Klarheit darüber, was für Sie wirklich möglich ist — und was nicht. Ehrlich, ohne Schönfärberei.</p>
@@ -3459,8 +3519,8 @@
       <h3>4 · Schriftarten (lokal gehostet)</h3>
       <p>Diese Website verwendet die Schriftarten „Cormorant Garamond" und „Outfit". Beide sind lokal auf dem Server dieser Website eingebunden — beim Laden der Seite wird <strong>keine</strong> Verbindung zu Google-Servern oder anderen Schriftarten-Diensten hergestellt und keine IP-Adresse an Dritte übermittelt.</p>
 
-      <h3>5 · Kontaktformular</h3>
-      <p>Bei Nutzung des Kontaktformulars werden die angegebenen Daten zur Bearbeitung Ihrer Anfrage gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Die Daten werden nicht an Dritte weitergegeben und nach Abschluss der Bearbeitung gelöscht, sofern keine gesetzliche Aufbewahrungspflicht besteht.</p>
+      <h3>5 · Kontaktaufnahme</h3>
+      <p>Wenn Sie mich per E-Mail, Telefon oder WhatsApp kontaktieren, werden die übermittelten Daten (z. B. Name, Kontaktdaten, Inhalt der Anfrage) zur Bearbeitung Ihrer Anfrage gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Die Daten werden nicht an Dritte weitergegeben und nach Abschluss der Bearbeitung gelöscht, sofern keine gesetzliche Aufbewahrungspflicht besteht.</p>
 
       <h3>6 · Online-Terminbuchung</h3>
       <p>Für die Terminbuchung wird ein externer Dienst (Microsoft Bookings) eingesetzt. Es gelten die Datenschutzbedingungen des jeweiligen Anbieters. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
