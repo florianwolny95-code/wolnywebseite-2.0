@@ -7,15 +7,15 @@
 <meta name="description" content="Unabhängige Finanzberatung in Magdeburg & bundesweit. Florian Wolny — Immobilienfinanzierung, Vermögensaufbau und Versicherungsstrategie. §34i, §34f und §34d zugelassen.">
 <meta name="author" content="Florian Wolny">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://wolnywebseite-2-0.vercel.app/">
+<link rel="canonical" href="https://www.finanzierungmitflori.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
-<meta property="og:url" content="https://wolnywebseite-2-0.vercel.app/">
+<meta property="og:url" content="https://www.finanzierungmitflori.com/">
 <meta property="og:title" content="Wolny Finanzberatung · Florian Wolny · Magdeburg & bundesweit">
 <meta property="og:description" content="Unabhängige Finanzberatung — Immobilienfinanzierung, Vermögensaufbau und Versicherungsstrategie aus Magdeburg.">
-<meta property="og:image" content="https://wolnywebseite-2-0.vercel.app/florian-wolny.jpg">
+<meta property="og:image" content="https://www.finanzierungmitflori.com/florian-wolny.jpg">
 <meta property="og:image:width" content="1408">
 <meta property="og:image:height" content="1056">
 
@@ -23,7 +23,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Wolny Finanzberatung · Florian Wolny · Magdeburg & bundesweit">
 <meta name="twitter:description" content="Unabhängige Finanzberatung — Immobilienfinanzierung, Vermögensaufbau und Versicherungsstrategie aus Magdeburg.">
-<meta name="twitter:image" content="https://wolnywebseite-2-0.vercel.app/florian-wolny.jpg">
+<meta name="twitter:image" content="https://www.finanzierungmitflori.com/florian-wolny.jpg">
 
 <!-- Theme & icons -->
 <meta name="theme-color" content="#0a0b0d">
@@ -45,9 +45,9 @@
   "name": "Wolny Finanzberatung",
   "alternateName": "Florian Wolny Finanzberatung",
   "founder": { "@type": "Person", "name": "Florian Wolny" },
-  "image": "https://wolnywebseite-2-0.vercel.app/florian-wolny.jpg",
-  "logo": "https://wolnywebseite-2-0.vercel.app/logo-dark.png",
-  "url": "https://wolnywebseite-2-0.vercel.app/",
+  "image": "https://www.finanzierungmitflori.com/florian-wolny.jpg",
+  "logo": "https://www.finanzierungmitflori.com/logo-dark.png",
+  "url": "https://www.finanzierungmitflori.com/",
   "email": "kontakt@finanzierungmitflori.com",
   "telephone": "+49-1573-9284233",
   "address": {
@@ -76,10 +76,33 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<!-- Fonts: lokal gehostet (DSGVO-konform, kein Google-Request) -->
+<link rel="preload" href="/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* ═══ LOKALE FONTS (Variable Fonts, latin) ═══ */
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 300 600;
+    font-display: swap;
+    src: url('/fonts/cormorant-garamond.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 300 600;
+    font-display: swap;
+    src: url('/fonts/cormorant-garamond-italic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 200 600;
+    font-display: swap;
+    src: url('/fonts/outfit.woff2') format('woff2');
+  }
+
   :root {
     --bg: #0a0b0d;
     --bg-warm: #111214;
@@ -1579,39 +1602,37 @@
     max-width: 620px;
   }
 
-  /* Banks rondell — infinite horizontal scroll */
+  /* Banks rondell — infinite horizontal scroll, heller Premium-Card-Look */
   .rondell-wrap {
     margin-top: 40px;
     position: relative;
-    border-radius: 16px;
+    border-radius: 18px;
     padding: 1px;
     background: linear-gradient(180deg,
-      rgba(184, 147, 90, 0.18) 0%,
-      rgba(184, 147, 90, 0.04) 22%,
-      rgba(184, 147, 90, 0.04) 78%,
-      rgba(184, 147, 90, 0.18) 100%);
+      rgba(184, 147, 90, 0.5) 0%,
+      rgba(184, 147, 90, 0.15) 30%,
+      rgba(184, 147, 90, 0.15) 70%,
+      rgba(184, 147, 90, 0.5) 100%);
     box-shadow:
-      0 18px 50px -20px rgba(0, 0, 0, 0.55),
-      0 1px 0 rgba(237, 232, 220, 0.04) inset;
+      0 24px 60px -22px rgba(0, 0, 0, 0.5),
+      0 6px 20px -10px rgba(0, 0, 0, 0.3);
   }
   .rondell {
     overflow: hidden;
     position: relative;
-    padding: 28px 0;
-    border-radius: 15px;
-    background:
-      radial-gradient(ellipse at 50% 0%, rgba(212, 180, 131, 0.07) 0%, transparent 60%),
-      linear-gradient(180deg, rgba(237, 232, 220, 0.035) 0%, rgba(237, 232, 220, 0.015) 100%),
-      var(--bg-warm);
-    mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 91%, transparent 100%);
+    padding: 34px 0;
+    border-radius: 17px;
+    background: linear-gradient(180deg, #ffffff 0%, #faf8f3 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
   }
   .rondell-track {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 32px;
     width: max-content;
-    animation: rondell-scroll 50s linear infinite;
+    animation: rondell-scroll 55s linear infinite;
+    will-change: transform;
   }
   .rondell-wrap:hover .rondell-track { animation-play-state: paused; }
   .rondell .partner {
@@ -1619,31 +1640,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 56px;
-    padding: 10px 22px;
-    background: rgba(237, 232, 220, 0.05);
-    border: 1px solid rgba(237, 232, 220, 0.08);
-    border-radius: 10px;
-    box-shadow:
-      0 1px 0 rgba(237, 232, 220, 0.05) inset,
-      0 6px 14px -8px rgba(0, 0, 0, 0.5);
-    transition: opacity 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0.82;
+    height: 68px;
+    padding: 12px 28px;
+    background: #ffffff;
+    border: 1px solid rgba(38, 40, 44, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 3px 12px -5px rgba(20, 22, 26, 0.14);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
   .rondell .partner:hover {
-    opacity: 1;
-    background: rgba(237, 232, 220, 0.09);
-    border-color: rgba(184, 147, 90, 0.4);
-    transform: translateY(-2px);
+    border-color: rgba(184, 147, 90, 0.55);
+    transform: translateY(-3px);
     box-shadow:
-      0 1px 0 rgba(237, 232, 220, 0.08) inset,
-      0 10px 22px -8px rgba(0, 0, 0, 0.6),
-      0 0 18px -4px rgba(184, 147, 90, 0.25);
+      0 10px 24px -8px rgba(20, 22, 26, 0.22),
+      0 0 0 3px rgba(184, 147, 90, 0.08);
   }
   .rondell .partner img {
     height: 100%;
     width: auto;
-    max-width: 140px;
+    max-width: 150px;
     object-fit: contain;
     filter: none;
     display: block;
@@ -1659,6 +1674,38 @@
     font-style: italic;
     text-align: center;
   }
+
+  /* Bankpartner-Band auf der Startseite (heller Über-mich-Bereich) */
+  .about-banks {
+    border-top: 1px solid var(--light-line);
+    margin-top: 100px;
+    padding-top: 90px;
+    text-align: center;
+  }
+  .about-banks .sub-eyebrow-light { justify-content: center; }
+  .about-banks h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 4.5vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    color: var(--light-ink);
+    margin-bottom: 20px;
+  }
+  .about-banks h2 em { font-style: italic; color: var(--light-gold); font-weight: 300; }
+  .about-banks > p {
+    color: var(--light-ink-dim);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .about-banks .rondell-wrap {
+    box-shadow:
+      0 24px 55px -24px rgba(38, 40, 44, 0.35),
+      0 6px 18px -10px rgba(38, 40, 44, 0.18);
+  }
+  .about-banks .partners-note { color: var(--light-ink-dim); opacity: 0.75; }
 
   .stats-band {
     display: grid;
@@ -1808,6 +1855,212 @@
   .cta-btn:hover::before { transform: translateY(0); }
   .cta-btn span { position: relative; z-index: 1; }
 
+  /* ═══ WHATSAPP CTA ═══ */
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px 30px;
+    background: #1fad55;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px -10px rgba(31, 173, 85, 0.55);
+    transition: background 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+                transform 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+                box-shadow 0.35s ease;
+  }
+  .btn-wa:hover {
+    background: #189a4a;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px -10px rgba(31, 173, 85, 0.65);
+  }
+  .btn-wa svg { width: 19px; height: 19px; flex-shrink: 0; fill: currentColor; }
+  .btn-wa--ghost {
+    background: rgba(10, 11, 13, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(31, 173, 85, 0.55);
+    color: #e8f5ec;
+    box-shadow: none;
+  }
+  .btn-wa--ghost:hover {
+    background: #1fad55;
+    border-color: #1fad55;
+    color: #fff;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(237, 232, 220, 0.85);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 16px 4px;
+    border-bottom: 1px solid rgba(212, 180, 131, 0.4);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .hero-cta-secondary:hover { color: var(--gold-bright); border-color: var(--gold-bright); }
+
+  /* Kontakt-CTA-Reihe */
+  .contact-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .contact-cta-row .cta-btn { margin-top: 0; }
+
+  /* Topic-CTA: WhatsApp neben Terminbuchung */
+  .topic-cta .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .topic-cta .cta-row .cta-btn,
+  .topic-cta .cta-row .btn-wa { margin-top: 16px; }
+
+  /* Floating WhatsApp-Button (nur Mobile/Tablet) */
+  .wa-fab {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 640;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(31, 173, 85, 0.35);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+  }
+  .wa-fab svg { width: 28px; height: 28px; fill: currentColor; }
+  .wa-fab:active { transform: scale(0.94); }
+  body.cookie-open .wa-fab {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+  }
+  @media (max-width: 960px) {
+    .wa-fab { display: flex; }
+  }
+
+  /* ═══ HERO-PORTRAIT (Vertrauensanker mit Gesicht) ═══ */
+  .hero-portrait {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 6;
+    width: min(310px, 23vw);
+    animation: fadeInPortrait 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+  }
+  @keyframes fadeInPortrait {
+    from { opacity: 0; transform: translateY(calc(-50% + 18px)); }
+    to   { opacity: 1; transform: translateY(-50%); }
+  }
+  .hero-portrait .portrait-frame {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 180, 131, 0.45);
+    box-shadow:
+      0 34px 80px -24px rgba(0, 0, 0, 0.75),
+      0 10px 30px -12px rgba(0, 0, 0, 0.5);
+  }
+  .hero-portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 22%;
+  }
+  .hero-portrait .portrait-caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 44px 18px 16px;
+    background: linear-gradient(180deg, transparent 0%, rgba(6, 7, 9, 0.78) 55%);
+    color: #fff;
+  }
+  .hero-portrait .portrait-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.15;
+    color: #fff;
+  }
+  .hero-portrait .portrait-role {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-top: 5px;
+  }
+  /* Textspalte einkürzen, damit Headline nicht unter die Bildkarte läuft */
+  .hero--portrait .hero-content { padding-right: min(30vw, 400px); }
+  .hero--portrait h1 { font-size: clamp(46px, 6.8vw, 104px); }
+
+  @media (max-width: 1100px) {
+    /* Kompakte Variante: Avatar-Zeile im Textfluss */
+    .hero-portrait {
+      position: static;
+      transform: none;
+      width: auto;
+      margin-top: 26px;
+      animation: none;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero-portrait .portrait-frame {
+      width: 62px;
+      height: 62px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 8px 22px -6px rgba(0, 0, 0, 0.6);
+    }
+    .hero-portrait img { object-position: 50% 18%; }
+    .hero-portrait .portrait-caption {
+      position: static;
+      padding: 0;
+      background: none;
+    }
+    .hero-portrait .portrait-name {
+      font-size: 18px;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+    }
+    .hero-portrait .portrait-role {
+      font-size: 8.5px;
+      letter-spacing: 0.2em;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+    }
+    .hero--portrait .hero-content { padding-right: 24px; }
+    .hero--portrait h1 { font-size: clamp(40px, 11vw, 68px); }
+  }
+
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 1100px) {
     .feature-grid, .cases { grid-template-columns: 1fr; }
@@ -1911,10 +2164,10 @@
     .process .step-num { font-size: 30px; }
 
     .rondell-wrap { margin-top: 32px; border-radius: 14px; }
-    .rondell { padding: 22px 0; border-radius: 13px; }
-    .rondell-track { gap: 18px; animation-duration: 38s; }
-    .rondell .partner { height: 48px; padding: 8px 16px; border-radius: 9px; }
-    .rondell .partner img { max-width: 110px; }
+    .rondell { padding: 26px 0; border-radius: 13px; }
+    .rondell-track { gap: 20px; animation-duration: 42s; }
+    .rondell .partner { height: 56px; padding: 10px 20px; border-radius: 10px; }
+    .rondell .partner img { max-width: 125px; }
 
     .topic-quote {
       font-size: 18px; line-height: 1.35;
@@ -1980,9 +2233,9 @@
     .topic-hero h1 { font-size: clamp(36px, 14vw, 60px); }
     .close-topic-global { left: 8px; }
     .close-topic-global span { display: none; }
-    .rondell-track { gap: 14px; }
-    .rondell .partner { height: 42px; padding: 6px 12px; border-radius: 8px; }
-    .rondell .partner img { max-width: 90px; }
+    .rondell-track { gap: 16px; }
+    .rondell .partner { height: 50px; padding: 8px 16px; border-radius: 9px; }
+    .rondell .partner img { max-width: 108px; }
   }
 
   @media (max-width: 400px) {
@@ -2003,6 +2256,42 @@
     .bg-stage, .main-page, .topic-overlay, .bg-layer {
       transition: opacity 0.3s ease, transform 0.3s ease !important;
     }
+    /* Karussell: statt Endlos-Animation manuell scrollbar */
+    .rondell-track { animation: none; }
+    .rondell {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+    .ticker { animation: none; opacity: 0.35; }
+  }
+
+  /* Mobile Browser-UI (Adressleiste): stabile Viewport-Höhe */
+  @supports (height: 100svh) {
+    .hero { height: 100svh; }
+    .topic-hero { min-height: 100svh; }
+  }
+
+  /* Niedrige Viewports (kleine/quere Smartphones): Hero darf wachsen,
+     statt Inhalt oben/unten abzuschneiden */
+  @media (max-height: 700px) {
+    .hero {
+      height: auto;
+      min-height: 100vh;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    @supports (height: 100svh) {
+      .hero { min-height: 100svh; }
+    }
+    .hero[data-topic] { padding-bottom: 170px; }
+  }
+  @media (max-height: 700px) and (max-width: 960px) {
+    .hero h1 { font-size: clamp(32px, 9.5vw, 52px); }
+    .hero-cta-row { margin-top: 26px; }
+    .hero-stats { margin-top: 22px; }
+    .scroll-hint { display: none; }
   }
 
   /* ═══ COOKIE CONSENT BANNER ═══ */
@@ -2120,7 +2409,7 @@
     <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
   </ul>
 
-  <button class="nav-burger" id="navBurger" aria-label="Menü öffnen/schließen">
+  <button class="nav-burger" id="navBurger" aria-label="Menü öffnen/schließen" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -2148,12 +2437,12 @@
 
 <!-- FIXED BACKGROUND STAGE -->
 <div class="bg-stage" id="bgStage" data-active="magdeburg">
-  <video class="bg-layer bg-magdeburg" autoplay muted loop playsinline preload="auto">
+  <video class="bg-layer bg-magdeburg" autoplay muted loop playsinline preload="auto" poster="https://res.cloudinary.com/dtxhydmct/video/upload/so_0,w_1600,q_70/v1776676024/shutterstock_1024439915_bqhgrr.jpg">
     <source media="(max-width: 960px)" src="https://res.cloudinary.com/dtxhydmct/video/upload/w_1280,h_720,q_40,ac_none,vc_h264/v1776676024/shutterstock_1024439915_bqhgrr.mp4" type="video/mp4">
     <source src="https://res.cloudinary.com/dtxhydmct/video/upload/v1776676024/shutterstock_1024439915_bqhgrr.mp4" type="video/mp4">
   </video>
   <img class="bg-layer bg-haus" src="bg-haus.jpg" loading="lazy" decoding="async" alt="">
-  <video class="bg-layer bg-kurse" autoplay muted loop playsinline preload="auto">
+  <video class="bg-layer bg-kurse" autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dtxhydmct/video/upload/so_0,w_1600,q_70/v1776678255/Kurse_4K_xgu5zp.jpg">
     <source media="(max-width: 960px)" src="https://res.cloudinary.com/dtxhydmct/video/upload/w_1280,h_720,q_40,ac_none,vc_h264/v1776678255/Kurse_4K_xgu5zp.mp4" type="video/mp4">
     <source src="https://res.cloudinary.com/dtxhydmct/video/upload/v1776678255/Kurse_4K_xgu5zp.mp4" type="video/mp4">
   </video>
@@ -2164,7 +2453,7 @@
 <div class="main-page" id="mainPage">
 
   <!-- ═══ SECTION 1: MAGDEBURG ═══ -->
-  <section class="hero" data-section="1" data-bg="magdeburg" id="top">
+  <section class="hero hero--portrait" data-section="1" data-bg="magdeburg" id="top">
     <div class="hero-content">
       <div class="hero-eyebrow">Finanzberatung · Magdeburg &amp; bundesweit</div>
       <h1>Die meisten treffen<br>finanzielle Entscheidungen<br><em>ohne Überblick.</em></h1>
@@ -2172,6 +2461,26 @@
         Ich sorge dafür, dass Sie ihn bekommen — über Finanzierung,
         Kapitalmarkt, Absicherung und Struktur hinweg.
       </p>
+
+      <!-- Vertrauensanker: Gesicht + Name (Desktop: Bildkarte rechts · Mobile: Avatar-Zeile) -->
+      <div class="hero-portrait">
+        <div class="portrait-frame">
+          <img src="florian-wolny.jpg" alt="Florian Wolny – unabhängiger Finanzberater in Magdeburg" width="1408" height="1056">
+          <div class="portrait-caption">
+            <div class="portrait-name">Florian Wolny</div>
+            <div class="portrait-role">Ihr persönlicher Ansprechpartner</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cta-row">
+        <a class="btn-wa js-wa" href="https://wa.me/4915739284233?text=Hallo%20Florian%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Finanzierungsberatung%20und%20w%C3%BCrde%20gerne%20kurz%20mit%20dir%20sprechen." target="_blank" rel="noopener noreferrer" aria-label="Per WhatsApp Kontakt aufnehmen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.22 8.22 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.25 8.25-8.25m-3.53 3.66c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.14.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.19-.53.07-.26-.13-1.06-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.12-.24-.01-.39.11-.5.11-.11.27-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.11-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01Z"/></svg>
+          <span>Per WhatsApp anfragen</span>
+        </a>
+        <a class="hero-cta-secondary" href="#kontakt">Kontakt &amp; Termin →</a>
+      </div>
+
       <div class="hero-stats">
         <div class="hero-stat"><div class="stat-val">400+</div><div class="stat-label">Bankpartner im Vergleich</div></div>
         <div class="hero-stat"><div class="stat-val">100 %</div><div class="stat-label">Ungebunden &amp; unabhängig</div></div>
@@ -2378,6 +2687,42 @@
         </div>
       </div>
 
+      <!-- Bankpartner — Vertrauensanker auf der Startseite -->
+      <div class="about-banks">
+        <div class="sub-eyebrow-light">Bankpartner</div>
+        <h2>Über 400 Banken im Vergleich.<br><em>Ein Ansprechpartner.</em></h2>
+        <p>Über Europace und Prohyp vergleiche ich hunderte Banken, Sparkassen und Versicherer gleichzeitig — eine Auswahl unserer Finanzierungspartner:</p>
+
+        <div class="rondell-wrap">
+        <div class="rondell">
+          <div class="rondell-track">
+            <div class="partner"><img src="logo-volksbank.png" alt="Volksbank VR-Bank" loading="lazy"></div>
+            <div class="partner"><img src="logo-sparkasse.png" alt="Sparkasse" loading="lazy"></div>
+            <div class="partner"><img src="logo-kfw.png" alt="KfW Förderbank" loading="lazy"></div>
+            <div class="partner"><img src="logo-apobank.png" alt="apoBank" loading="lazy"></div>
+            <div class="partner"><img src="logo-muenchener-hypo.png" alt="Münchener Hypothekenbank" loading="lazy"></div>
+            <div class="partner"><img src="logo-deutsche-bank.png" alt="Deutsche Bank" loading="lazy"></div>
+            <div class="partner"><img src="logo-commerzbank.png" alt="Commerzbank" loading="lazy"></div>
+            <div class="partner"><img src="logo-dkb.png" alt="DKB" loading="lazy"></div>
+            <div class="partner"><img src="logo-ing.png" alt="ING" loading="lazy"></div>
+            <div class="partner"><img src="logo-hanseatic.png" alt="Hanseatic Bank" loading="lazy"></div>
+            <!-- Duplicate for seamless loop -->
+            <div class="partner" aria-hidden="true"><img src="logo-volksbank.png" alt="" loading="lazy"></div>
+            <div class="partner" aria-hidden="true"><img src="logo-sparkasse.png" alt="" loading="lazy"></div>
+            <div class="partner" aria-hidden="true"><img src="logo-kfw.png" alt="" loading="lazy"></div>
+            <div class="partner" aria-hidden="true"><img src="logo-apobank.png" alt="" loading="lazy"></div>
+            <div class="partner" aria-hidden="true"><img src="logo-muenchener-hypo.png" alt="" loading="lazy"></div>
+            <div class="partner" aria-hidden="true"><img src="logo-deutsche-bank.png" alt="" loading="lazy"></div>
+            <div class="partner" aria-hidden="true"><img src="logo-commerzbank.png" alt="" loading="lazy"></div>
+            <div class="partner" aria-hidden="true"><img src="logo-dkb.png" alt="" loading="lazy"></div>
+            <div class="partner" aria-hidden="true"><img src="logo-ing.png" alt="" loading="lazy"></div>
+            <div class="partner" aria-hidden="true"><img src="logo-hanseatic.png" alt="" loading="lazy"></div>
+          </div>
+        </div>
+        </div>
+        <div class="partners-note">Auswahl der Finanzierungspartner. Verfügbarkeit je nach Region und Finanzierungsart.</div>
+      </div>
+
     </div>
   </section>
 
@@ -2393,6 +2738,17 @@
           <p>Ein erstes Gespräch kostet nichts. Was es bringen kann: Klarheit darüber, was für Sie wirklich möglich ist — und was nicht. Ehrlich, ohne Schönfärberei.</p>
           <p>30 Minuten reichen, um zu verstehen, wo Sie stehen und welche Möglichkeiten Sie haben. Keine Verpflichtung, kein Kleingedrucktes.</p>
 
+          <div class="contact-cta-row">
+            <a class="btn-wa js-wa" href="https://wa.me/4915739284233?text=Hallo%20Florian%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Finanzierungsberatung%20und%20w%C3%BCrde%20gerne%20kurz%20mit%20dir%20sprechen." target="_blank" rel="noopener noreferrer" aria-label="Per WhatsApp Kontakt aufnehmen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.22 8.22 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.25 8.25-8.25m-3.53 3.66c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.14.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.19-.53.07-.26-.13-1.06-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.12-.24-.01-.39.11-.5.11-.11.27-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.11-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01Z"/></svg>
+              <span>Per WhatsApp anfragen</span>
+            </a>
+            <a class="cta-btn" href="https://outlook.office.com/bookings/" target="_blank" rel="noopener noreferrer">
+              <span>Termin buchen</span>
+              <span>→</span>
+            </a>
+          </div>
+
           <dl class="contact-info">
             <dt>Büro</dt>
             <dd>Rödelstraße 15 · 39108 Magdeburg</dd>
@@ -2400,6 +2756,8 @@
             <dd>Bundesweit digital</dd>
             <dt>Telefon</dt>
             <dd><a href="tel:+4915739284233">0157 39284233</a></dd>
+            <dt>WhatsApp</dt>
+            <dd><a class="js-wa" href="https://wa.me/4915739284233?text=Hallo%20Florian%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Finanzierungsberatung%20und%20w%C3%BCrde%20gerne%20kurz%20mit%20dir%20sprechen." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp-Chat mit Florian Wolny öffnen">Direkt schreiben →</a></dd>
             <dt>E-Mail</dt>
             <dd><a href="mailto:kontakt@finanzierungmitflori.com">kontakt@finanzierungmitflori.com</a></dd>
             <dt>Termin</dt>
@@ -2417,7 +2775,7 @@
       <div class="footer-meta">
         <div class="footer-brand">
           <img src="logo-white.png" alt="" class="footer-logo">
-          <div>© 2026 · Florian Wolny · Wolny Finanzberatung</div>
+          <div>© 2026 · Wolny Finanzberatung · finanzierungmitflori.com</div>
         </div>
         <div class="footer-legal">
           <button type="button" data-modal="impressum">Impressum</button>
@@ -2473,7 +2831,7 @@
           <div class="cell">
             <div class="tag">Marktbreite</div>
             <h3>Vergleich über 400+ Bankpartner</h3>
-            <p>Über Europaceund Prohyp vergleiche ich gleichzeitig hunderte Banken, Sparkassen, Versicherer und Bausparkassen. Sie bekommen das beste Angebot aus dem gesamten Markt — nicht das erstbeste aus einem Sortiment.</p>
+            <p>Über Europace und Prohyp vergleiche ich gleichzeitig hunderte Banken, Sparkassen, Versicherer und Bausparkassen. Sie bekommen das beste Angebot aus dem gesamten Markt — nicht das erstbeste aus einem Sortiment.</p>
           </div>
           <div class="cell">
             <div class="tag">Struktur</div>
@@ -2550,7 +2908,7 @@
             <h2>Eine Auswahl<br>unserer <em>Bankpartner.</em></h2>
           </div>
           <div>
-            <p>Ich verbinde Sie mit lokalen und überregionalen Bankpartnern — für den besten Zins aus dem gesamten Markt. Europaceund Prohyp bilden die Basis; lokale Sparkassen, Volksbanken und Spezialbanken ergänzen, wo es sinnvoll ist.</p>
+            <p>Ich verbinde Sie mit lokalen und überregionalen Bankpartnern — für den besten Zins aus dem gesamten Markt. Europace und Prohyp bilden die Basis; lokale Sparkassen, Volksbanken und Spezialbanken ergänzen, wo es sinnvoll ist.</p>
           </div>
         </div>
 
@@ -2721,10 +3079,16 @@
     <div class="topic-cta">
       <h2>Prüfen Sie Ihre <em>Finanzierung</em> — jetzt.</h2>
       <p class="sub">30 Minuten reichen, um zu sehen, ob Ihre Finanzierung sinnvoll strukturiert ist — oder wo Potenzial liegt. Kein Kleingedrucktes, keine Verpflichtung.</p>
-      <a href="https://outlook.office.com/bookings/" target="_blank" rel="noopener noreferrer" class="cta-btn">
-        <span>Beratungstermin buchen</span>
-        <span>→</span>
-      </a>
+      <div class="cta-row">
+        <a class="btn-wa js-wa" data-wa-text="Hallo Florian, ich interessiere mich für eine Immobilienfinanzierung und würde gerne kurz mit dir sprechen." href="https://wa.me/4915739284233?text=Hallo%20Florian%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Immobilienfinanzierung%20und%20w%C3%BCrde%20gerne%20kurz%20mit%20dir%20sprechen." target="_blank" rel="noopener noreferrer" aria-label="Immobilienfinanzierung per WhatsApp anfragen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.22 8.22 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.25 8.25-8.25m-3.53 3.66c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.14.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.19-.53.07-.26-.13-1.06-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.12-.24-.01-.39.11-.5.11-.11.27-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.11-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01Z"/></svg>
+          <span>Per WhatsApp anfragen</span>
+        </a>
+        <a href="https://outlook.office.com/bookings/" target="_blank" rel="noopener noreferrer" class="cta-btn">
+          <span>Beratungstermin buchen</span>
+          <span>→</span>
+        </a>
+      </div>
     </div>
 
   </div>
@@ -2934,10 +3298,16 @@
     <div class="topic-cta">
       <h2>Ihr Kapital verdient<br>einen <em>echten Ansprechpartner.</em></h2>
       <p class="sub">30 Minuten — um zu verstehen, wo Sie stehen, was realistisch möglich ist, und ob wir zusammenpassen. Kein Produkt, kein Druck, kein Kleingedrucktes.</p>
-      <a href="https://outlook.office.com/bookings/" target="_blank" rel="noopener noreferrer" class="cta-btn">
-        <span>Gespräch vereinbaren</span>
-        <span>→</span>
-      </a>
+      <div class="cta-row">
+        <a class="btn-wa js-wa" data-wa-text="Hallo Florian, ich interessiere mich für Geldanlage und Vermögensaufbau und würde gerne kurz mit dir sprechen." href="https://wa.me/4915739284233?text=Hallo%20Florian%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Geldanlage%20und%20Verm%C3%B6gensaufbau%20und%20w%C3%BCrde%20gerne%20kurz%20mit%20dir%20sprechen." target="_blank" rel="noopener noreferrer" aria-label="Geldanlage per WhatsApp anfragen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.22 8.22 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.25 8.25-8.25m-3.53 3.66c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.14.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.19-.53.07-.26-.13-1.06-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.12-.24-.01-.39.11-.5.11-.11.27-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.11-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01Z"/></svg>
+          <span>Per WhatsApp anfragen</span>
+        </a>
+        <a href="https://outlook.office.com/bookings/" target="_blank" rel="noopener noreferrer" class="cta-btn">
+          <span>Gespräch vereinbaren</span>
+          <span>→</span>
+        </a>
+      </div>
     </div>
 
   </div>
@@ -3038,8 +3408,8 @@
       <h3>3 · Hosting</h3>
       <p>Diese Website wird auf einem externen Server gehostet. Beim Aufruf der Website werden automatisch Verbindungsdaten (IP-Adresse, Browser, Betriebssystem, Zeitpunkt) erfasst und vom Hosting-Anbieter verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am stabilen Betrieb).</p>
 
-      <h3>4 · Google Fonts</h3>
-      <p>Diese Website nutzt Google Fonts (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Beim Laden der Seite wird eine Verbindung zu Google-Servern hergestellt, dabei kann Ihre IP-Adresse übermittelt werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</p>
+      <h3>4 · Schriftarten (lokal gehostet)</h3>
+      <p>Diese Website verwendet die Schriftarten „Cormorant Garamond" und „Outfit". Beide sind lokal auf dem Server dieser Website eingebunden — beim Laden der Seite wird <strong>keine</strong> Verbindung zu Google-Servern oder anderen Schriftarten-Diensten hergestellt und keine IP-Adresse an Dritte übermittelt.</p>
 
       <h3>5 · Kontaktformular</h3>
       <p>Bei Nutzung des Kontaktformulars werden die angegebenen Daten zur Bearbeitung Ihrer Anfrage gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Die Daten werden nicht an Dritte weitergegeben und nach Abschluss der Bearbeitung gelöscht, sofern keine gesetzliche Aufbewahrungspflicht besteht.</p>
@@ -3114,10 +3484,11 @@
 
       <h3>3 · Externe Dienste (keine Cookies, aber Verbindungsdaten)</h3>
       <ul>
-        <li><strong>Google Fonts</strong> — lädt Schriftarten von Google-Servern. Dabei kann Ihre IP-Adresse an Google übermittelt werden.</li>
         <li><strong>Video-Streaming</strong> — Hintergrund-Videos werden über einen Hosting-Anbieter (Cloudinary) ausgeliefert.</li>
         <li><strong>Microsoft Bookings</strong> — nur beim Klick auf „Beratungstermin buchen" wird eine Verbindung zu Microsoft aufgebaut.</li>
+        <li><strong>WhatsApp</strong> — nur beim Klick auf einen WhatsApp-Button wird WhatsApp (Meta Platforms Ireland Ltd.) geöffnet; erst dort gelten die Datenschutzbedingungen von WhatsApp.</li>
       </ul>
+      <p>Schriftarten sind lokal eingebunden — es werden keine Google-Fonts-Server kontaktiert.</p>
 
       <h3>4 · Einwilligung widerrufen</h3>
       <p>Sie können Ihre Entscheidung jederzeit ändern — entweder über den Link „Cookie-Einstellungen" im Footer oder durch Löschen des Eintrags „wolny-cookie-consent" im <code>localStorage</code> Ihres Browsers.</p>
@@ -3141,7 +3512,7 @@
 </div>
 
 <div class="topic-bg-fixed" id="topicBgInvestment">
-  <video autoplay muted loop playsinline preload="auto">
+  <video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dtxhydmct/video/upload/so_0,w_1600,q_70/v1776678255/Kurse_4K_xgu5zp.jpg">
     <source media="(max-width: 960px)" src="https://res.cloudinary.com/dtxhydmct/video/upload/w_1280,h_720,q_40,ac_none,vc_h264/v1776678255/Kurse_4K_xgu5zp.mp4" type="video/mp4">
     <source src="https://res.cloudinary.com/dtxhydmct/video/upload/v1776678255/Kurse_4K_xgu5zp.mp4" type="video/mp4">
   </video>
@@ -3161,6 +3532,22 @@
     <span class="ticker"       style="--x: 64%; --y: 90%; --scale: 0.4; --duration: 22s; --dx: -28px; --dy: -14px; --delay: 2.1s;">MSCI EM</span>
   </div>
 </div>
+
+<!-- Floating WhatsApp-Button (erscheint nur auf Mobile/Tablet) -->
+<a class="wa-fab js-wa" href="https://wa.me/4915739284233?text=Hallo%20Florian%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Finanzierungsberatung%20und%20w%C3%BCrde%20gerne%20kurz%20mit%20dir%20sprechen." target="_blank" rel="noopener noreferrer" aria-label="Per WhatsApp Kontakt aufnehmen">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.22 8.22 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.25 8.25-8.25m-3.53 3.66c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.14.17 1.76 2.67 4.25 3.73.59.27 1.05.42 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.16-.48-.27-.25-.14-1.47-.74-1.69-.82-.23-.08-.37-.12-.56.12-.16.25-.64.81-.78.97-.15.17-.29.19-.53.07-.26-.13-1.06-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.12-.24-.01-.39.11-.5.11-.11.27-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.11-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01Z"/></svg>
+</a>
+
+<script>
+  // ═══ ZENTRALE KONFIGURATION ═══
+  // WhatsApp-Nummer & Standardtext HIER zentral ändern — alle Buttons/Links
+  // mit class="js-wa" werden beim Laden automatisch damit befüllt.
+  // (Einzelne Links können den Text per data-wa-text-Attribut überschreiben.)
+  window.WOLNY_CONFIG = {
+    whatsappNumber: '4915739284233', // internationales Format ohne "+"
+    whatsappText: 'Hallo Florian, ich interessiere mich für eine Finanzierungsberatung und würde gerne kurz mit dir sprechen.'
+  };
+</script>
 
 <script>
   // BACKGROUND CROSSFADE
@@ -3429,6 +3816,16 @@
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
+
+  // WHATSAPP-LINKS aus zentraler Konfiguration befüllen (siehe WOLNY_CONFIG oben)
+  (function() {
+    const cfg = window.WOLNY_CONFIG || {};
+    if (!cfg.whatsappNumber) return;
+    document.querySelectorAll('a.js-wa').forEach(a => {
+      const text = a.dataset.waText || cfg.whatsappText || '';
+      a.href = 'https://wa.me/' + cfg.whatsappNumber + (text ? '?text=' + encodeURIComponent(text) : '');
+    });
+  })();
 </script>
 
 <!-- ═══ COOKIE CONSENT BANNER ═══ -->
@@ -3473,11 +3870,13 @@
 
   function hideBanner() {
     banner.classList.remove('is-visible');
+    document.body.classList.remove('cookie-open');
     setTimeout(function() { banner.hidden = true; }, 600);
   }
 
   function showBanner() {
     banner.hidden = false;
+    document.body.classList.add('cookie-open'); // Floating-WhatsApp-Button ausblenden
     // Frame abwarten, damit die Transition zündet
     requestAnimationFrame(function() {
       requestAnimationFrame(function() { banner.classList.add('is-visible'); });
