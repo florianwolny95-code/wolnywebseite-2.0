@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wolny Finanzberatung · Florian Wolny · Magdeburg &amp; bundesweit</title>
-<meta name="description" content="Unabhängige Finanzberatung in Magdeburg & bundesweit. Florian Wolny — Immobilienfinanzierung, Vermögensaufbau und Versicherungsstrategie. §34i, §34f und §34d zugelassen.">
+<meta name="description" content="Unabhängige Finanzberatung in Magdeburg & bundesweit. Florian Wolny — Immobilienfinanzierung, Geldanlage und Absicherung mit über 400 Bankpartnern. Kostenloses Erstgespräch, auch per WhatsApp.">
 <meta name="author" content="Florian Wolny">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.finanzierungmitflori.com/">
@@ -14,7 +14,7 @@
 <meta property="og:locale" content="de_DE">
 <meta property="og:url" content="https://www.finanzierungmitflori.com/">
 <meta property="og:title" content="Wolny Finanzberatung · Florian Wolny · Magdeburg & bundesweit">
-<meta property="og:description" content="Unabhängige Finanzberatung — Immobilienfinanzierung, Vermögensaufbau und Versicherungsstrategie aus Magdeburg.">
+<meta property="og:description" content="Unabhängige Finanzberatung — Immobilienfinanzierung, Geldanlage und Absicherung aus Magdeburg. Kostenloses Erstgespräch, auch per WhatsApp.">
 <meta property="og:image" content="https://www.finanzierungmitflori.com/florian-wolny.jpg">
 <meta property="og:image:width" content="1408">
 <meta property="og:image:height" content="1056">
@@ -22,7 +22,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Wolny Finanzberatung · Florian Wolny · Magdeburg & bundesweit">
-<meta name="twitter:description" content="Unabhängige Finanzberatung — Immobilienfinanzierung, Vermögensaufbau und Versicherungsstrategie aus Magdeburg.">
+<meta name="twitter:description" content="Unabhängige Finanzberatung — Immobilienfinanzierung, Geldanlage und Absicherung aus Magdeburg. Kostenloses Erstgespräch, auch per WhatsApp.">
 <meta name="twitter:image" content="https://www.finanzierungmitflori.com/florian-wolny.jpg">
 
 <!-- Theme & icons -->
@@ -128,6 +128,24 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+
+  /* Skip-Link: unsichtbar bis Tastatur-Fokus (Barrierefreiheit) */
+  .skip-link {
+    position: fixed;
+    top: -60px; left: 16px;
+    z-index: 10001;
+    padding: 12px 20px;
+    background: var(--gold-bright);
+    color: var(--bg);
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 0 0 10px 10px;
+    transition: top 0.25s ease;
+  }
+  .skip-link:focus { top: 0; }
   body {
     background: var(--bg);
     color: var(--ink);
@@ -1844,12 +1862,13 @@
   .cta-btn {
     display: inline-flex; align-items: center; gap: 20px;
     margin-top: 16px;
-    padding: 20px 36px;
+    padding: 18px 34px;
     background: var(--gold-bright);
     color: var(--bg);
     text-decoration: none;
     font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase;
     font-weight: 500;
+    border-radius: 999px;
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     position: relative; overflow: hidden;
   }
@@ -1887,19 +1906,6 @@
     box-shadow: 0 14px 36px -10px rgba(31, 173, 85, 0.65);
   }
   .btn-wa svg { width: 19px; height: 19px; flex-shrink: 0; fill: currentColor; }
-  .btn-wa--ghost {
-    background: rgba(10, 11, 13, 0.55);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(31, 173, 85, 0.55);
-    color: #e8f5ec;
-    box-shadow: none;
-  }
-  .btn-wa--ghost:hover {
-    background: #1fad55;
-    border-color: #1fad55;
-    color: #fff;
-  }
 
   .hero-cta-row {
     display: flex;
@@ -2318,6 +2324,17 @@
     .rondell-track { gap: 16px; }
     .rondell .partner { height: 50px; padding: 8px 16px; border-radius: 9px; }
     .rondell .partner img { max-width: 108px; }
+
+    /* CTAs auf kleinen Screens: volle Breite, sauber gestapelt */
+    .hero-cta-row .btn-wa,
+    .hero-cta-secondary,
+    .contact-cta-row .btn-wa,
+    .contact-cta-row .cta-btn,
+    .topic-cta .cta-row .btn-wa,
+    .topic-cta .cta-row .cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   @media (max-width: 400px) {
@@ -2477,6 +2494,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#mainPage">Zum Inhalt springen</a>
+
 <!-- ═══ NAVIGATION ═══ -->
 <nav class="primary" id="navPrimary">
   <a href="#top" class="logo">
@@ -2509,7 +2528,7 @@
   <a href="#kontakt" class="mobile-link">Kontakt</a>
 </div>
 
-<div class="section-dots" id="dots">
+<div class="section-dots" id="dots" aria-hidden="true">
   <div class="dot active" data-section="1"></div>
   <div class="dot" data-section="2"></div>
   <div class="dot" data-section="3"></div>
@@ -2568,7 +2587,7 @@
       <div class="hero-stats">
         <div class="hero-stat"><div class="stat-val">400+</div><div class="stat-label">Bankpartner im Vergleich</div></div>
         <div class="hero-stat"><div class="stat-val">100 %</div><div class="stat-label">Ungebunden &amp; unabhängig</div></div>
-        <div class="hero-stat"><div class="stat-val">3-fach</div><div class="stat-label">Finanzierung · Geldanlage · Versicherung</div></div>
+        <div class="hero-stat"><div class="stat-val">3-fach</div><div class="stat-label">Zugelassen für Finanzierung, Anlage &amp; Versicherung</div></div>
       </div>
     </div>
 
