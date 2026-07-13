@@ -1487,6 +1487,11 @@
     color: var(--ink);
     text-shadow: 0 1px 20px rgba(0,0,0,0.8);
   }
+  /* Platz für die Portrait-Karte reservieren (Desktop) */
+  .topic-hero--portrait .topic-hero-inner { padding-right: min(28vw, 380px); }
+  @media (max-width: 1100px) {
+    .topic-hero--portrait .topic-hero-inner { padding-right: 0; }
+  }
   .topic-hero .eyebrow {
     font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
     color: var(--gold-bright); margin-bottom: 28px;
@@ -2984,7 +2989,7 @@
   <div class="topic-content-wrap">
 
     <!-- Hero -->
-    <div class="topic-hero">
+    <div class="topic-hero topic-hero--portrait">
       <div class="topic-hero-inner">
         <div class="eyebrow">Immobilienfinanzierung · Eigenheim · Kapitalanlage</div>
         <h1>Viele Banken<br><em>im Vergleich —</em><br>Ihre Finanzierung.</h1>
@@ -2992,6 +2997,17 @@
           Ich vergleiche hunderte Banken gleichzeitig — und finde die Finanzierung,
           die sich für Sie rechnet. Nicht nur heute, sondern in 10 Jahren noch.
         </p>
+
+        <div class="hero-portrait">
+          <div class="portrait-frame">
+            <div class="portrait-chip">§34i · §34f · §34d</div>
+            <img src="florian-wolny.jpg" alt="Florian Wolny – unabhängiger Finanzberater in Magdeburg" width="1408" height="1056">
+            <div class="portrait-caption">
+              <div class="portrait-name">Florian Wolny</div>
+              <div class="portrait-role">Ihr Ansprechpartner für Finanzierung</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="topic-hero-scroll">
         <span>Weiter</span>
@@ -3303,7 +3319,7 @@
   <div class="topic-content-wrap">
 
     <!-- Hero -->
-    <div class="topic-hero">
+    <div class="topic-hero topic-hero--portrait">
       <div class="topic-hero-inner">
         <div class="eyebrow">Investment · Portfolio · Langfristbegleitung</div>
         <h1>Vermögen<br>langfristig und<br><em>nachvollziehbar</em><br>aufbauen.</h1>
@@ -3313,6 +3329,17 @@
           wir eine Struktur, die Sie verstehen und auch in unruhigen
           Marktphasen beibehalten können.
         </p>
+
+        <div class="hero-portrait">
+          <div class="portrait-frame">
+            <div class="portrait-chip">§34i · §34f · §34d</div>
+            <img src="florian-wolny.jpg" alt="Florian Wolny – unabhängiger Finanzberater in Magdeburg" width="1408" height="1056">
+            <div class="portrait-caption">
+              <div class="portrait-name">Florian Wolny</div>
+              <div class="portrait-role">Ihr Ansprechpartner für Geldanlage</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="topic-hero-scroll">
         <span>Weiter</span>
