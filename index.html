@@ -1051,7 +1051,7 @@
   .contact-info {
     margin-top: 36px;
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr);
     gap: 14px 24px;
     font-size: 15px;
     padding: 28px 30px;
@@ -1066,6 +1066,7 @@
   }
   .contact-info dd {
     color: var(--ink);
+    overflow-wrap: break-word;
   }
   .contact-info dd a {
     color: var(--gold-bright);
@@ -2157,28 +2158,39 @@
     .hero-portrait {
       position: static;
       transform: none;
-      width: auto;
+      width: 100%;
       margin-top: 26px;
       animation: none;
-      display: flex;
-      align-items: center;
-      gap: 14px;
     }
     .hero-portrait::before { display: none; }
     .hero-portrait .portrait-chip { display: none; }
+    /* Frame wird selbst zur Flex-Row: Kreis-Avatar + Textspalte daneben
+       (die Caption liegt im DOM innerhalb des Frames, nicht daneben) */
     .hero-portrait .portrait-frame {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: visible;
+    }
+    .hero-portrait img {
       width: 62px;
       height: 62px;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
       flex-shrink: 0;
+      border-radius: 50%;
+      object-position: 50% 18%;
       box-shadow: 0 8px 22px -6px rgba(0, 0, 0, 0.6);
     }
-    .hero-portrait img { object-position: 50% 18%; }
     .hero-portrait .portrait-caption {
       position: static;
       padding: 0;
       background: none;
+      flex: 1;
+      min-width: 0;
     }
     .hero-portrait .portrait-name {
       font-size: 18px;
@@ -2313,7 +2325,7 @@
     .cta-btn { padding: 18px 28px; font-size: 11px; letter-spacing: 0.2em; gap: 14px; }
 
     h2.display { font-size: clamp(30px, 7vw, 44px); margin-bottom: 24px; }
-    .content-grid { grid-template-columns: 1fr; gap: 32px; }
+    .content-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
     .content-grid p { font-size: 15px; }
     section.contact { padding: 50px 24px 40px; }
     .license-badges { gap: 8px; margin-top: 22px; }
