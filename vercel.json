@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/checks/:path*", "destination": "https://wolny-tools.vercel.app/finanzguide/:path*" },
+    { "source": "/assets/:path*", "destination": "https://wolny-tools.vercel.app/assets/:path*" }
+  ]
+}
